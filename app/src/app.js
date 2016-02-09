@@ -6,7 +6,8 @@ import router from 'angular-route';
 import template from './app.html';
 import view1 from './view1.html';
 import view2 from './view2.html';
-import purpose from './content.js';
+
+import purpose from './content';
 
 const app = angular.module( 'myApp', [
     router
@@ -16,13 +17,11 @@ const app = angular.module( 'myApp', [
 app.controller( 'AppCtrl', [ '$scope', '$http', function($scope, $http){
     $scope.place = 'Out of This World';
 
-//    $scope.purpose = purpose;
+    $scope.purpose = content();
 
     $http.get( 'http://localhost:3000/api/monkeys' ).then( res => {
         $scope.monkeys = res.data;
-
-
-});
+    });
 }]);
 
 app.config(['$routeProvider', function($routeProvider) {

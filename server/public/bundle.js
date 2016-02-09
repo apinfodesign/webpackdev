@@ -81,7 +81,10 @@
 	var app = _angular2.default.module('myApp', [_angularRoute2.default]);
 	
 	app.controller('AppCtrl', ['$scope', '$http', function ($scope, $http) {
-	    $scope.place = 'world';
+	    $scope.place = 'Out of This World';
+	
+	    $scope.purpose = _content2.default;
+	
 	    $http.get('http://localhost:3000/api/monkeys').then(function (res) {
 	        $scope.monkeys = res.data;
 	    });
@@ -112,9 +115,9 @@
 	});
 	
 	exports.default = function () {
-	    var place = arguments.length <= 0 || arguments[0] === undefined ? 'earth' : arguments[0];
+	    var purpose = arguments.length <= 0 || arguments[0] === undefined ? 'figuring it all out' : arguments[0];
 	
-	    return place;
+	    return purpose;
 	};
 
 /***/ },
@@ -5567,7 +5570,7 @@
 	
 	
 	// module
-	exports.push([module.id, "p {\n    color: white;\n    background-color: green;\n    font-weight: bolder;\n    padding: 10px;\n    font-size: 5rem;\n\n}", ""]);
+	exports.push([module.id, "p {\n    color: white;\n    background-color: green;\n    font-weight: bolder;\n    padding: 100px;\n    font-size: 3rem;\n\n}", ""]);
 	
 	// exports
 
@@ -37357,7 +37360,7 @@
 /* 37 */
 /***/ function(module, exports) {
 
-	module.exports = "<div ng-controller='AppCtrl'>\n    {{monkeys}}\n    <div ng-view></div>\n</div>";
+	module.exports = "<div ng-controller='AppCtrl'>\n    <p>Place is: {{place}}    </p>\n    <p>Purpose is: {{purpose}} </p>\n    <div ng-view></div>\n</div>";
 
 /***/ },
 /* 38 */
