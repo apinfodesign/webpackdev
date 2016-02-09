@@ -1,0 +1,6 @@
+External*
+node
+node*
+.DS_Store
+.idea*
+.idea/workspace.xml
