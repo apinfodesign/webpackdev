@@ -19,5 +19,5 @@ app.get('/api/monkeys', function (req, res) {
 
 
 
-console.log("listening 3000");
+console.log("listening on 3000");
 app.listen(3000);
