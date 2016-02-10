@@ -12,13 +12,13 @@ describe( 'The Dogs Controller', () => {
     it( 'has default data', () => {
         /*var controller = */$controller( 'View1Ctrl', { $scope } );
         assert.equal( $scope.user, 'jimmy' );
-        assert.deepEqual( $scope.animalTypes, [ 'cats', 'dogs', 'birds' ] );
+        assert.deepEqual( $scope.animalTypes, [ 'collie', 'poodle', 'lab' ] );
     });
 
     it( 'can add animal to default data', () => {
         /*var controller = */$controller( 'View1Ctrl', { $scope } );
-        $scope.add( 'lizards' );
-        assert.deepEqual( $scope.animalTypes, [ 'cats', 'dogs', 'birds', 'lizards' ] );
+        $scope.add( 'beagle' );
+        assert.deepEqual( $scope.animalTypes, [ 'collie', 'poodle', 'lab', 'beagle' ] );
     });
 
 

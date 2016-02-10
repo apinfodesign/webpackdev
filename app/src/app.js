@@ -9,15 +9,19 @@ import view2 from './view2.html';
 
 import purpose from './content';
 
+console.log(purpose, 'kkkkkk');
+
 const app = angular.module( 'myApp', [
     router
 ]);
 
 
 app.controller( 'AppCtrl', [ '$scope', '$http', function($scope, $http){
-    $scope.place = 'Out of This World';
+    $scope.place = 'Out of This World xxx';
 
     $scope.purpose = content();
+
+    console.log(purpose, 'kkkkkk');
 
     $http.get( 'http://localhost:3000/api/monkeys' ).then( res => {
         $scope.monkeys = res.data;
