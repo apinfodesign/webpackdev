@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha"
+    "test": "mocha",
+    "test-watch": "mocha -w",
+    "api-test": "mocha 'test-api/'"
   },
   "author": "miles hochstein",
   "license": "ISC",
@@ -13,6 +15,8 @@
     "express": "^4.13.4"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "mocha": "^2.4.5"
   }
 }
