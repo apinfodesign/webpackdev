@@ -6,22 +6,23 @@ import router from 'angular-route';
 import template from './app.html';
 import view1 from './view1.html';
 import view2 from './view2.html';
+import View1Ctrl from './view1Ctrl';
 
-import purpose from './content';
 
-console.log(purpose, 'kkkkkk');
+import anything from './content';
 
 const app = angular.module( 'myApp', [
     router
 ]);
 
 
+View1Ctrl( app );
+
 app.controller( 'AppCtrl', [ '$scope', '$http', function($scope, $http){
-    $scope.place = 'Out of This World xxx';
 
-    $scope.purpose = content();
+    $scope.place = 'Out of This World';
 
-    console.log(purpose, 'kkkkkk');
+    $scope.anything = anything();
 
     $http.get( 'http://localhost:3000/api/monkeys' ).then( res => {
         $scope.monkeys = res.data;
@@ -38,9 +39,12 @@ app.config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/view1'});
 }]);
 
+app.run( [ '$rootScope', function( $rootScope ) {
+    $rootScope.user = 'miles';
+}]);
+
 document.body.innerHTML = template;
 
 angular.bootstrap( document, [ app.name ], {
-
 });
 
