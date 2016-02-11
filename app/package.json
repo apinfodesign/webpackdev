@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --inline",
     "build": "webpack",
-    "test": "karma start"
+    "test": "karma start",
+    "update-webdriver":"webdriver update"
   },
   "author": "miles hochstein",
   "license": "I",
