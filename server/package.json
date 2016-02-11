@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha"
   },
   "author": "miles hochstein",
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.4"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
   }
 }

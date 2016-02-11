@@ -1,5 +1,4 @@
-const milesifier = require( '../lib.server/milesifier' );
-
+const milesifier = require( '../lib/milesifier' );
 const assert = require( 'assert' );
 
 describe( 'milesifier', () => {
