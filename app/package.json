@@ -7,10 +7,13 @@
     "start": "webpack-dev-server --inline",
     "build": "webpack",
     "test": "karma start",
-    "update-webdriver":"webdriver update"
+    "update-webdriver": "webdriver update",
+    "e2e": "protractor",
+    "e2e-home": "npm run e2e -- --suite=home",
+    "e2e-explore": "protractor --elementExplorer"
   },
   "author": "miles hochstein",
-  "license": "I",
+  "license": "ISC--",
   "dependencies": {
     "angular": "^1.5.0",
     "angular-route": "^1.5.0",
@@ -35,7 +38,8 @@
     "karma-safari-launcher": "^0.1.1",
     "karma-webpack": "^1.7.0",
     "mocha": "^2.4.5",
-    "style-loader": "^0.13.0"
+    "style-loader": "^0.13.0",
+    "protractor": "^3.1.1"
   },
   "babel": {
     "presets": [ "es2015" ]
