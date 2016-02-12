@@ -2,7 +2,7 @@ describe('My App', function() {
 
     it('should have a title', function() {
         browser.get('/');
-        expect(browser.getTitle()).toEqual( 'Hello from Code Fellows' );
+        expect(browser.getTitle()).toEqual( 'Webpack App' );
     });
 
     describe('navigation', function() {
@@ -11,29 +11,22 @@ describe('My App', function() {
             browser.get('/');
         });
 
+        it('default to /view1', function() {
+            //console.log( browser.getLocationAbsUrl() , 'mmmmmm');
+            expect(browser.getLocationAbsUrl()).toMatch("/view1");
+        });
 
         it('default to /view1', function() {
+            const para = element.all(by.tagName('p'));
+            const p1 = para.get(0);
+            expect( p1.getText() ).toMatch( /Place is: Out of This World/ )
+        });
 
-            expect( browser.getLocationAbsUrl() ).toMatch("/view1");
-
-            const nav = element.all(by.tagName('a'));
-            const a1 = nav.get(0);
-            const a2 = nav.get(1);
-
-            expect( element.all( by.css('[ng-view] p' ) ).first().getText() )
-                .toMatch(/hello from view 1/);
-
-            expect( element( by.binding('animalTypes') ).getText() )
-                .toMatch('["cats","dogs","birds"]')
-
-            a2.click();
-            expect( browser.getLocationAbsUrl() ).toMatch("/view2");
-
-            expect( element( by.binding('place') ).getText() )
-                .toMatch( /hello world/ );
-
-            a1.click();
-            expect( browser.getLocationAbsUrl() ).toMatch("/view1");
+        it('default to /view1', function() {
+            const para = element.all(by.tagName('p'));
+            const p2 = para.get(1);
+            expect( p2.getText() ).toMatch( /Purpose is: Figuring It Out/ )
         });
     });
+
 });

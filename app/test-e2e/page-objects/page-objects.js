@@ -1,6 +1,9 @@
 module.exports = function(){
+
     var state = $('#state');
+
     var input = $('input');
+
     var button = $('button');
 
     this.get = function(){

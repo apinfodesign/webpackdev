@@ -10,7 +10,8 @@
     "update-webdriver": "webdriver update",
     "e2e": "protractor",
     "e2e-home": "npm run e2e -- --suite=home",
-    "e2e-explore": "protractor --elementExplorer"
+    "e2e-explore": "protractor --elementExplorer",
+    "e2e-mytest" : "npm run e2e -- --suite=mytest"
   },
   "author": "miles hochstein",
   "license": "ISC--",

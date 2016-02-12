@@ -1,12 +1,16 @@
-const HomePage = require( './page-objects/home-page' );
+const HomePage = require( './page-objects/page-objects' );
 const fs = require( 'fs' );
 
 describe('Home Page', function() {
 
     it('should submit', function() {
+
         const home = new HomePage();
-        home.get();
+
+        home.get();    //grabs view1
+
         expect( home.getState() ).toEqual('edit');
+
         home.setText('hello');
 
         browser.debugger();
@@ -16,6 +20,7 @@ describe('Home Page', function() {
         });
 
         home.submit();
+
         expect( home.getState() ).toEqual('hello');
     });
 

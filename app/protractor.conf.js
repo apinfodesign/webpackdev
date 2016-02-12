@@ -7,8 +7,9 @@ exports.config = {
 //   ],
 
     suites: {
-        home: 'test-e2e/home.spec.js',
-        full: 'test-e2e/**/*.spec.js'
+        home:  'test-e2e/home.spec.js',
+        //full: 'test-e2e/**/*.spec.js',
+        mytest: 'test-e2e/myapp.spec.js'
     },
 
     capabilities: {
