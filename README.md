@@ -1,21 +1,15 @@
-# webpackdev
+# webpackdev - An exercise in implementing webpack
+now adding karma
+now adding protractor
 
-# An exercise in implementing webpack
-
-#now adding karma
-
-#now adding protractor
+#---------------
 
 #Testing - Easiest with 3 terminal windows
+terminal 1 - start server in /server  node server.js  Starts on 8080
+terminal 2 - App side in /app  - "webdriver-manager start" 
+terminal 3 - App side in /app  - NPM run ____  OR  protractor __
 
-##terminal 1 - start server in /server  node server.js  Starts on 8080
-
-##terminal 2 - App side in /app  - "webdriver-manager start" 
-
-##terminal 3 - App side in /app  - NPM run ____  OR  protractor __
- 
+#---------------
 Currently testing only with "myapp.spec.js.
-
 Use "npm run e2e-mytest"
-
 4 tests passing
