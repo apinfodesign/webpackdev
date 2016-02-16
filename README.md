@@ -18,3 +18,8 @@ Use "npm run e2e-mytest"
 
 #Latest
 4 tests passing
+
+
+#Angular Filters
+
+
