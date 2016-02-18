@@ -31,20 +31,21 @@ describe( 'The Above Average Filter', () => {
             { name: 'LA Times',         age: 23 }
         ];
 
-        $controller( 'MagazineCtrl', { $scope } );
-        assert.deepEqual( $scope.magazines, testarray );
+         assert.deepEqual( $scope.magazines, testarray );
     });
 
 
+    it( 'evaluates bigger, equal and smaller correctly', () => {
+        $controller( 'MagazineCtrl', { $scope } );
 
+        assert.equal( $scope.biggerThanAverage(10,20), false);
+        assert.equal( $scope.biggerThanAverage(22,22), false);
+        assert.equal( $scope.biggerThanAverage(32,22), true);
+        assert.equal($scope.biggerThanAverage($scope.avg+1, $scope.avg), true);
+        assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg+1), false);
+        assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg), false);
+    });
 
-
-    //it( 'can add dog to default data set', () => {
-    //    $controller( 'View1Ctrl', { $scope } );
-    //    $scope.add( 'beagle' );
-    //    assert.deepEqual( $scope.dogTypes,
-    //        [ 'collie', 'poodle', 'lab', 'beagle' ] );
-    //});
 
 
 });
