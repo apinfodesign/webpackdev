@@ -4,32 +4,74 @@
     <p>created {{ created | moment }}
 </div>
 
-<div ng-controller='ListCtrl'>
-    <h1>My list</h1>
+<hr>
+
+<div ng-controller='MagazineCtrl'>
+    <h1>List of Online News Portals</h1>
+
     <p>
         name: <input ng-model='search.name'><br>
         min age: <input ng-model='search2.age'><br>
-        toy: <input ng-model='search.toy'><br>
-        {{ search | json }}
+
+        {{ search2 | json}}<br>
     </p>
+
     <table>
         <thead>
-        <td>number</td>
-        <td>name</td>
-        <td>age</td>
-        <td>toy</td>
-        <td>play</td>
+            <td>index</td>
+            <td>name</td>
+            <td>age</td>
         </thead>
-        <tr ng-repeat="kid in kids
-			| filter: search
-			| filter: search2 : compare
-			| orderBy: 'age'
-			track by kid.name ">
+
+        <p>{{ avg }} is average age.</p>
+
+        <br>
+
+        <button ng-click="applyAverage()" >
+            {{ ageInput ? 'Show All' : 'Show Above Average Only' }} </button>
+
+        <br>
+        <tr ng-repeat="magazine in magazines
+                    | filter: search
+                    | filter: ageInput : biggerThanAverage
+                    | orderBy: 'age' ">
+
             <td>{{ $index + 1 }}</td>
-            <td>{{ kid.name }}</td>
-            <td>{{ kid.age }}</td>
-            <td>{{ kid.toy }}</td>
-            <td>{{ play }}</td>
+            <td>{{ magazine.name }}</td>
+            <td>{{ magazine.age }}</td>
+
         </tr>
     </table>
 </div>
+
+
+<!--<div ng-controller='ListCtrl'>-->
+    <!--<h1>My list</h1>-->
+    <!--<p>-->
+        <!--name: <input ng-model='search.name'><br>-->
+        <!--min age: <input ng-model='search2.age'><br>-->
+        <!--toy: <input ng-model='search.toy'><br>-->
+        <!--{{ search | json }}-->
+    <!--</p>-->
+    <!--<table>-->
+        <!--<thead>-->
+        <!--<td>number</td>-->
+        <!--<td>name</td>-->
+        <!--<td>age</td>-->
+        <!--<td>toy</td>-->
+        <!--<td>play</td>-->
+        <!--</thead>-->
+        <!--<tr ng-repeat="kid in kids-->
+			<!--| filter: search-->
+			<!--| filter: search2 : compare-->
+			<!--| orderBy: 'age'-->
+			<!--track by kid.name ">-->
+            <!--<td>{{ $index + 1 }}</td>-->
+            <!--<td>{{ kid.name }}</td>-->
+            <!--<td>{{ kid.age }}</td>-->
+            <!--<td>{{ kid.toy }}</td>-->
+            <!--<td>{{ play }}</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
+

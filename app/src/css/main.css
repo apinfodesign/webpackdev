@@ -1,8 +1,8 @@
 p {
-    color: white;
-    background-color: green;
+    color: blue;
+    background-color: lightgrey;
     font-weight: bolder;
     padding: 20px;
-    font-size: 3rem;
+    font-size: 2rem;
 
 }
