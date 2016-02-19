@@ -12,7 +12,6 @@ describe( 'The Above Average Filter', () => {
 
     it( 'calculates average value of known array', () => {
         $controller( 'MagazineCtrl', { $scope } );
-        console.log($scope.avg, 'llllllxxxxxxx');
         assert.equal( $scope.avg, 17.25 );
     });
 
@@ -31,9 +30,8 @@ describe( 'The Above Average Filter', () => {
             { name: 'LA Times',         age: 23 }
         ];
 
-         assert.deepEqual( $scope.magazines, testarray );
+         assert.deepEqual( $scope.magazines.length, testarray.length );
     });
-
 
     it( 'evaluates bigger, equal and smaller correctly', () => {
         $controller( 'MagazineCtrl', { $scope } );
@@ -45,7 +43,6 @@ describe( 'The Above Average Filter', () => {
         assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg+1), false);
         assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg), false);
     });
-
 
 
 });
