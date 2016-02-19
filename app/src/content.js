@@ -1,3 +1,3 @@
-export default function( purpose = 'figuring it all out' ){
+export default function( purpose = 'Figuring It Out' ){
     return purpose;
 }
