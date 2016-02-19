@@ -34,6 +34,7 @@
                 <input  name='age'
                         required
                         type="number"
+                        width="50"
                         ng-model='edit.age'
                         ng-pattern='/^\d+$/'
                         min = "0"
@@ -74,13 +75,11 @@
                        ng-model-options="{ debounce: 500 }"
                        placeholder = "http://...">
 
-                     <span  ng-show="form.change.$dirty &&
-                                    form.input.$error.required">
+                     <span  ng-show="form.input.$error.required">
                             Full http:// URL Required</span>
 
-                      <span ng-show="form.change.$dirty &&
-                                    form.url.$error.required">
-                          Not Valid http:// URL</span>
+                      <span ng-show=" form.url.$error.required">
+                            Not Valid http:// URL</span>
 
 				<span>
 					 <!--{{form.name.$error | json }}'-->
