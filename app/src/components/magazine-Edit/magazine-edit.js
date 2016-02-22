@@ -18,10 +18,11 @@ export default function( ngModule ) {
                 },
 
 
-            controller:    [ '$scope', function( $scope ){
+            controller:[ '$scope', 'magazinesService', function( $scope, magazinesService ){
 
                     $scope.update = function() {
                         $scope.$parent.magazine = angular.copy($scope.edit);
+
                     };
 
                     $scope.reset = function() {
@@ -29,6 +30,15 @@ export default function( ngModule ) {
                     };
 
                     $scope.reset();
+
+
+                    $scope.addNew = function(newMagazine) {
+
+                        magazinesService.addNew( angular.copy($scope.edit) );
+
+                        $scope.reset();
+
+                    }
 
                 }]
             };

@@ -4,11 +4,13 @@ import angularAnimate from 'angular-animate';
 import template from './app.html';
 import filters from './filters';
 import components from './components';
+import services from './services';
 
 const app = angular.module( 'myApp', [
     angularAnimate,
     //filters,
-    components
+    components,
+    services
 ]);
 
 
@@ -16,7 +18,6 @@ const app = angular.module( 'myApp', [
 
 app.controller( 'AppCtrl', [ '$scope', function( $scope ){
     $scope.created = new Date();
-    console.log('in AppCtrl kkkkkkkkk');
 
 }]);
 
