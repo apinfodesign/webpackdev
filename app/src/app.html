@@ -1,200 +1,21 @@
 <div ng-controller='AppCtrl'>
-    <h1>Create New Magazine</h1>
 
-    <p>{{ magazine | json }}</p>
+    <h1>Noodlepath News Reader</h1>
 
-    <div ng-controller='EditCtrl'>
+    <hr>
 
-        <form name='form'
-              novalidate
-              ng-submit='update()'>
-
-            <div>
-                <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input name='name'
-                       required
-                       ng-model='edit.name'
-                       ng-model-options="{ debounce: 500 }"
-                        placeholder="Name Required">
-                <span ng-show= 'form.age.$dirty &&
-				                form.name.$error.required'>
-                                Name is required
-				</span>
-
-				<span>
-					 <!--{{form.name.$error | json }}'-->
-				</span>
-            </div>
-
-            <br>
-
-            <div>
-                <label>Age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                       &nbsp;&nbsp;&nbsp;</label>
-                <input  name='age'
-                        required
-                        type="number"
-                        width="50"
-                        ng-model='edit.age'
-                        ng-pattern='/^\d+$/'
-                        min = "0"
-                        max = "120"
-                        Placeholder = "0 to 120">
-				<span ng-show= 'form.age.$dirty &&
-				                (form.age.$error.required ||
-				                 form.age.$error.min   ||
-                                 form.age.$error.max )'>
-                                 Age between 0 and 120 is required
-				</span>
-            </div>
-
-            <br>
-
-            <div>
-                <label>Comment:</label>
-                <input name='comment'
-                       ng-model='edit.comment'
-                       ng-trim='false'
-                       value = "No Comment Entered"
-                       placeholder= "Optional">
-
-            <!--<span ng-show= 'form.comment.$dirty'>-->
-                            <!--Comment is optional-->
-				<!--</span>-->
-            </div>
-
-            <br>
-
-            <div>
-                <label>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-
-                <input type="url"
-                       name="input"
-                       ng-model="edit.url"
-                       required
-                       ng-model-options="{ debounce: 500 }"
-                       placeholder = "http://...">
-
-                     <span  ng-show="form.input.$error.required">
-                            Full http:// URL Required</span>
-
-                      <span ng-show=" form.url.$error.required">
-                            Not Valid http:// URL</span>
-
-				<span>
-					 <!--{{form.name.$error | json }}'-->
-				</span>
-            </div>
-
-            <br>
-
-            <div>
-                <label>Percent Change:</label>
-
-                <input name='change'
-                       type="number"
-                       width="50"
-                       required
-                       ng-model='edit.change'
-                       ng-model-options="{ debounce: 500 }"
-                       ng-pattern='/^\d+$/'
-                       min = "0"
-                       max = "100"
-                       placeholder="0 to 100%">
-
-                <span ng-show = "form.change.$error.max ||
-                                 form.change.$error.min ">
-                        Must be a valid percentage.
-                </span>
-
-                <span ng-show = "form.change.$dirty &&
-				                 form.change.$error.required">
-                       Percentage must be entered.
-                </span>
-
-
-				<span>
-					 <!--{{form.change.$error | json }}'-->
-				</span>
-
-            </div>
-
-            <button ng-disabled='form.$invalid' type='submit'>Change</button>
-
-            <button ng-click='reset()'>Reset</button>
-
-        </form>
-
-
-        <br>
-        <hr>
-        <h4>Form Status Reporter</h4>
-        <div>valid: {{ form.$valid }}</div>
-        <div>invalid: {{ form.$invalid }}</div>
-        <div>pending: {{ form.$pending }}</div>
-        <div>pristine: {{ form.$pristine }}</div>
-        <div>dirty: {{ form.$dirty }}</div>
-        <div>errors: {{ form.name.$error | json }}</div>
-        <div>errors: {{ form.age.$error | json }}</div>
-
-        <div>edit: {{ edit | json }}</div>
-    </div>
-
-</div>
-
-<hr>
-
-<div ng-controller='MagazineCtrl'>
-    <h1>List of Online News Portals</h1>
     <div>
-        Set Search Name:    <input ng-model='search.name'><br>
-        Set Minimum Age: <input ng-model='search2.age'><br>
-        {{ search2 | json}}<br>
+        {{ magazine | json }}
     </div>
 
-    <table>
-        <thead>
-            <td>index</td>
-            <td>name</td>
-            <td>age</td>
-            <td>comment</td>
-        </thead>
+    <hr>
 
-        <div>{{ avg }} is average age.</div>
+    <magazine-edit magazine='magazine' saved='update(magazine)'></magazine-edit>
 
-        <br>
+    <hr>
 
-        <button ng-click="applyAverage()" >
-            {{ ageInput ? 'Show All' : 'Show Above Average Only' }} </button>
+    <magazines-list magazine='magazine'> </magazines-list>
 
-        <br>
-        <tr ng-repeat="magazine in magazines
-                    | filter: search
-                    | filter: ageInput : biggerThanAverage
-                    | orderBy: 'age' ">
+    <hr>
 
-
-            <td>{{ $index + 1 }}        </td>
-            <td>{{ magazine.name }}     </td>
-            <td>{{ magazine.age }}      </td>
-            <td>{{ magazine.comment }}  </td>
-            <td>{{ magazine.url }}  </td>
-            <td>{{ magazine.change }}  </td>
-
-
-        </tr>
-    </table>
 </div>
-
-
-<div ng-controller='AppCtrl'>
-    <h1>My app</h1>
-    <!--<p><input ng-model='format' value='MM YYYY'></p>-->
-    <h5>created {{ created | moment }}<h5>
-</div>
-
-<hr>
-
-
-
-
