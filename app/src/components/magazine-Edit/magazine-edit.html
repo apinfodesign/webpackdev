@@ -119,7 +119,7 @@
 
         <button ng-click='reset()'>Reset</button>
 
-        <button ng-click = 'addNew()'> ADD MAGAZINE </button>
+        <button ng-disabled='form.$invalid' ng-click = 'addNew()'> ADD MAGAZINE </button>
 
     </form>
 </div>

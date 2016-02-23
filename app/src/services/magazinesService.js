@@ -7,12 +7,9 @@ var dataarray = [
     {name: 'Wall Street J', age: 33, comment: 'capitalist', url: "http://google.com", change: "26"},
     {name: 'NY Post', age: 22, comment: 'street rag', url: "http://google.com", change: "25"},
     {name: 'LA Times', age: 23, comment: 'once great', url: "http://google.com", change: "24"}
-
 ];
 
-
 export default function( ngModule ) {
-
     ngModule.factory( 'magazinesService', function() {
 
             return {

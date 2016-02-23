@@ -37,7 +37,7 @@ module.exports = function(config) {
         preprocessors: {
             './src/app.js': [ 'webpack' ],
            // './test/**/*.js': [ 'babel' ],
-            './test/moment-filter.test.js': ['babel'],
+           // './test/moment-filter.test.js': ['babel'],
             './test/aboveAverageFilter.test.js' : ['babel']
         },
 

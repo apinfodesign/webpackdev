@@ -11,7 +11,6 @@ export default function( ngModule ) {
 
 }
 
-
 export default function( ngModule ) {
 
     ngModule.filter( 'moment', function () {

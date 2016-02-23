@@ -6,3 +6,5 @@ p {
     font-size: 1.2rem;
 
 }
+
+td {border: 1px solid lightgrey; padding: 5px;}

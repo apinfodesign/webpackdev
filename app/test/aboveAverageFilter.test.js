@@ -1,48 +1,87 @@
 describe( 'The Above Average Filter', () => {
 
-    beforeEach( angular.mock.module( 'myApp' ) );
-    var $controller, $scope;
+    var testarray =     [
+        { name: 'New York Times',   age: 24 },
+        { name: 'Washington Post',  age: 8  },
+        { name: 'Huffington Post',  age: 4  },
+        { name: 'Daily Beast',      age: 10 },
+        { name: 'Atlantic',         age: 14 },
+        { name: 'Wall Street J',    age: 33 },
+        { name: 'NY Post',          age: 22 },
+        { name: 'LA Times',         age: 23 }
+    ];
 
+    var service={
+        get(){
+        return Promise.resolve( testarray );
+        }
+    }
 
-    beforeEach( angular.mock.inject( function(   _$rootScope_, _$controller_ ) {
-        $controller = _$controller_;
-        $scope = _$rootScope_.$new();
+    beforeEach( angular.mock.module( 'myApp', function($provide){
+        $provide.value('magazinesService', service)
+        })
+    );
+
+    var component;
+    var $scope;
+
+    //inject compiler
+    beforeEach( angular.mock.inject( function( $rootScope, $compile ) {
+            var $outerScope = $rootScope.$new();
+            var render = $compile(
+                "<magazines-list magazine='magazine'> </magazines-list>"
+            );
+
+            component = render($outerScope);
+            $outerScope.$digest();  //after call render, let ng know to update
+            $scope = component.isolateScope();
+
+            console.log($scope.magazines, '1111111');
+
     }));
 
 
-    it( 'calculates average value of known array', () => {
-        $controller( 'MagazineCtrl', { $scope } );
-        assert.equal( $scope.avg, 17.25 );
+    it( 'imports the data set', (done) => {
+
+        setTimeout( function(){
+            assert.equal( $scope.magazines, testarray );
+            done();
+        });
     });
 
-    it( 'imports the data set', () => {
-        //array is actually defined in the app, but pretend it is imported
-        $controller( 'MagazineCtrl', { $scope } );
 
-        var testarray =     [
-            { name: 'New York Times',   age: 24 },
-            { name: 'Washington Post',  age: 8  },
-            { name: 'Huffington Post',  age: 4  },
-            { name: 'Daily Beast',      age: 10 },
-            { name: 'Atlantic',         age: 14 },
-            { name: 'Wall Street J',    age: 33 },
-            { name: 'NY Post',          age: 22 },
-            { name: 'LA Times',         age: 23 }
-        ];
+    it( 'calculates avg value', (done) => {
 
-         assert.deepEqual( $scope.magazines.length, testarray.length );
+            setTimeout( function(){
+                assert.equal( $scope.avg, 17.25 );
+                done();
+            });
     });
 
-    it( 'evaluates bigger, equal and smaller correctly', () => {
-        $controller( 'MagazineCtrl', { $scope } );
 
-        assert.equal( $scope.biggerThanAverage(10,20), false);
-        assert.equal( $scope.biggerThanAverage(22,22), false);
-        assert.equal( $scope.biggerThanAverage(32,22), true);
-        assert.equal($scope.biggerThanAverage($scope.avg+1, $scope.avg), true);
-        assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg+1), false);
-        assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg), false);
+    it( 'evaluates bigger correctly test 1', (done) => {
+
+        setTimeout( function(){
+            assert.equal($scope.biggerThanAverage($scope.avg+1, $scope.avg), true);
+            assert.equal($scope.biggerThanAverage(32,22), true);
+            done();
+        });
     });
+
+
+    it( 'evaluates smaller correctly test 2', (done) => {
+        setTimeout( function(){
+            assert.equal($scope.biggerThanAverage(10,20), false);
+            assert.equal($scope.biggerThanAverage(22,22), false);
+            assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg+1), false);
+            assert.equal($scope.biggerThanAverage($scope.avg, $scope.avg), false);
+
+            done();
+        });
+    });
+
+
+
 
 
 });
