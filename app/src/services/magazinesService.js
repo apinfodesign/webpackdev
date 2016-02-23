@@ -9,6 +9,7 @@ var dataarray = [
     {name: 'LA Times', age: 23, comment: 'once great', url: "http://google.com", change: "24"}
 ];
 
+
 export default function( ngModule ) {
     ngModule.factory( 'magazinesService', function() {
 
