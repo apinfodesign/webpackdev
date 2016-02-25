@@ -17,30 +17,24 @@ export default function( ngModule ) {
 
                 $scope.search = {};
 
-
                 $scope.compare = function (actual, expected) {
                     if (isNaN(expected)) {
-                         return actual.toLowerCase().indexOf(expected) > -1;
+                        return actual.toLowerCase().indexOf(expected) > -1;
                     }
                     else {
                         return actual > +expected;
                     }
                 };
 
-
                 $scope.play = true;
-
 
                 magazinesService.get().then(magazines => {
                     $scope.magazines = magazines;
-
                     $scope.avg = average($scope.magazines);  //works!
-
                     $scope.biggerThanAverage = function (actual, avg) {
                         console.log(actual, avg, ' is actual and average');
                         return actual > +avg;
                     };
-
 
                     $scope.applyAverage = function () {
                         if (!$scope.ageInput) {
@@ -50,7 +44,6 @@ export default function( ngModule ) {
                             $scope.ageInput = null;
                         }
                     };
-
 
                     function average(array) {
                         if (!array) {
@@ -66,19 +59,15 @@ export default function( ngModule ) {
                         }
                     }
 
-
-                    $scope.$apply();
-
+                   // $scope.$apply();
                 });
 
                 $scope.avg = average($scope.magazines);
-
 
                 $scope.biggerThanAverage = function (actual, avg) {
                     console.log(actual, avg, ' is actual and average');
                     return actual > +avg;
                 };
-
 
                 $scope.applyAverage = function () {
                     if (!$scope.ageInput) {

@@ -1,6 +1,6 @@
 <div>
 
-    <h3>Magazine Editor</h3>
+    <h3>Magazine Editor - Add Resource </h3>
     <form name='form'
           novalidate
           ng-submit='update()'>
@@ -115,11 +115,13 @@
 
         </div>
 
-        <button ng-disabled='form.$invalid' type='submit'>Change</button>
-
+        <br>
         <button ng-click='reset()'>Reset</button>
 
-        <button ng-disabled='form.$invalid' ng-click = 'addNew()'> ADD MAGAZINE </button>
+        <button ng-disabled='form.$invalid'
+                ng-click = 'addNew()'>
+                Add Magazine
+        </button>
 
     </form>
 </div>

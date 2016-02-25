@@ -33,6 +33,7 @@ describe( 'The Above Average Filter', () => {
             );
 
             component = render($outerScope);
+
             $outerScope.$digest();  //after call render, let ng know to update
             $scope = component.isolateScope();
 
