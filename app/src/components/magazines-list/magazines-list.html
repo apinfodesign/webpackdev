@@ -7,12 +7,14 @@
  <br>
     <table>
         <thead>
+        <td>_id</td>
         <td>number</td>
         <td>name</td>
         <td>age</td>
         <td>comment</td>
         <td>url</td>
         <td>percent change</td>
+        <td>delete</td>
         </thead>
 
         <tr ng-repeat="magazine in magazines
@@ -20,6 +22,7 @@
 			| filter: search2
 			| orderBy: 'age'
 			track by magazine.name ">
+            <td>{{ magazine._id }}</td>
 
             <td>{{ $index + 1 }}</td>
             <td>{{ magazine.name }}</td>
@@ -27,6 +30,8 @@
             <td>{{ magazine.comment }}</td>
             <td>{{ magazine.url }}</td>
             <td>{{ magazine.change }}</td>
+            <td><button ng-click="deleteMag( magazine._id )"> X</button></td>
+
 
         </tr>
     </table>

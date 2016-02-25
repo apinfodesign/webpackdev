@@ -26,16 +26,19 @@ export default function( ngModule ) {
                 },
 
                 addNew(newMagazine){
-                    console.log('htttp add new');
                     $http.post( url + '/api/magazines', newMagazine)
                     .then(successCallback, errorCallback);
+                },
+
+                deleteMag(id){
+                    console.log ('delete request for id : ', id);
+                    $http.post( url + '/api/magazines', id).
+                        then(successCallback, errorCallback);
                 }
 
 
             };
         };
-
-
 
     });
 

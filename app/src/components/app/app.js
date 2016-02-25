@@ -1,14 +1,11 @@
-import template from './users.html';
+import template from './app.html';
 
 export default function( ngModule ) {
-    ngModule.directive( 'users', function() {
+    ngModule.directive( 'app', function() {
         return {
             replace: true,
             restrict: 'E',
             template,
-            scope: {
-                stores: '='
-            },
             controller() {
                 // do stuff
             }

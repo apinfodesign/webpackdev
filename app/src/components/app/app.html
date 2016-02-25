@@ -1,0 +1,30 @@
+<div>
+    <h3>Intelligent News Reader with Angular UI Router</h3>
+
+    <nav>
+        <a ui-sref='magazines({ type: null })'>Magazines</a>
+        <a ui-sref='users'>Users</a>
+    </nav>
+
+    <section>
+        hello {{place}}
+    </section>
+
+    <section>
+        <p>show:
+            <a ui-sref='magazines({ type: null })'>
+                all
+            </a>
+
+            <a ng-repeat='type in petTypes'
+               ui-sref='magazines({ type: type })'>
+                {{type}}
+            </a>
+        </p>
+
+        <div ui-view>
+            default text: Welcome to Inteligent News Reader
+        </div>
+
+    </section>
+</div>

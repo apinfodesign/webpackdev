@@ -25,6 +25,7 @@ export default function( ngModule ) {
 
                     $scope.reset();
 
+
                     $scope.addNew = function(newMagazine) {
                         magazinesService.addNew( angular.copy($scope.edit) );
                         $scope.reset();

@@ -36,6 +36,12 @@ export default function( ngModule ) {
                         return actual > +avg;
                     };
 
+
+                    $scope.deleteMag = function(){
+
+
+                    };
+
                     $scope.applyAverage = function () {
                         if (!$scope.ageInput) {
                             $scope.ageInput = {age: $scope.avg};
