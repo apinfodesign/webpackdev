@@ -1,5 +1,21 @@
 <div ng-controller='AppCtrl'>
-    <p>Place is: {{place}}    </p>
-    <p>Purpose is: {{purpose}} </p>
-    <div ng-view></div>
+    <h1>Intelligent News Reader</h1>
+
+    <a href='/#magazines'>Magazines</a>
+    <a href='/#users'>Users</a>
+
+
+        <div>
+            {{ magazine | json }}
+        </div>
+    <hr>
+
+    <magazine-edit magazine='magazine' saved='update(magazine)'></magazine-edit>
+    <hr>
+
+    <magazines-list magazine='magazine'> </magazines-list>
+    <hr>
+
+
+
 </div>
