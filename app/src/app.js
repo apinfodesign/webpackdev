@@ -8,8 +8,8 @@ import services from './services';
 
 import passData from './pass-data';
 
-//import angularAnimate from 'angular-animate';
-//import template from './app.html';
+import angularAnimate from 'angular-animate';
+import template from './app.html';
 //import filters from './filters';
 
 const app = angular.module( 'myApp', [
