@@ -4,6 +4,8 @@ const dbURI = process.env.DB_URI;
 mongoose.Promise = Promise;
 mongoose.connect( dbURI );
 
+
+
 // CONNECTION EVENTS
 // When successfully connected
 mongoose.connection.on('connected', function () {
