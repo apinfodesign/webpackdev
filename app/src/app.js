@@ -1,43 +1,69 @@
-import content from './content';
-import cool from 'cool-ascii-faces';
-import './css/main.css';
 import angular from 'angular';
-import router from 'angular-route';
-import template from './app.html';
-import view1 from './view1.html';
-import view2 from './view2.html';
-import purpose from './content.js';
+import uirouter from 'angular-ui-router';
+
+import angularResource from 'angular-resource';
+import services from './services';
+import passData from './pass-data';
+
+import components from './components';
+import './css/main.css';
+
+//import template from './app.html';
+//import filters from './filters';
 
 const app = angular.module( 'myApp', [
-    router
+    angularResource, uirouter, components, services
 ]);
 
 
-app.controller( 'AppCtrl', [ '$scope', '$http', function($scope, $http){
-    $scope.place = 'Out of This World';
-
-//    $scope.purpose = purpose;
-
-    $http.get( 'http://localhost:3000/api/monkeys' ).then( res => {
-        $scope.monkeys = res.data;
-
-
-});
+app.controller('AppCtrl', [ '$scope', function( $scope ){
+    $scope.created = new Date();
+    $scope.signature = 'AuthorName';
 }]);
 
-app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view1', {
-        template: view1
-    });
-    $routeProvider.when('/view2', {
-        template: view2
-    });
-    $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
-document.body.innerHTML = template;
+        $stateProvider
+            .state( 'magazines', {
+                url: '/magazines',
+                template: `<magazines-list magazines="magazines"/>`,
+                resolve: {
+                    magazines ( magazinesService, $stateParams ) {
+                        return magazinesService.get();
+                    }
+                },
+                controller: passData( [ 'magazines' ] )
+            })
+
+            .state( 'editorform', {
+                url: '/editorform',
+                template: `<magazine-edit magazines="magazines"/>`,
+                resolve: {
+                    magazines ( magazinesService, $stateParams ){
+                    }
+                },
+                controller: passData([ 'magazines' ])
+            })
+
+            .state( 'users', {
+                url: '/users',
+                template: '<users-list users="users"/>',
+                controller: passData()
+            })
+
+            .state( 'about', {
+                url: '/about',
+                template: '<about-list about="about"/>',
+                controller: passData()
+            });
+
+     $urlRouterProvider.otherwise( '/magazines');
+
+    });
 
 angular.bootstrap( document, [ app.name ], {
-
 });
+
+
+
 

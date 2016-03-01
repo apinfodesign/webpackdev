@@ -1,8 +1,30 @@
 p {
-    color: white;
-    background-color: green;
+    color: blue;
+    background-color: lightgrey;
     font-weight: bolder;
-    padding: 100px;
-    font-size: 3rem;
+    padding: 20px;
+    font-size: 1.2rem;
+}
 
+td {border: 1px solid lightgrey; padding: 5px;}
+
+
+
+.details {
+    border: 1px solid steelblue;
+}
+
+.picture {
+    position: absolute;
+    top: 0; right: 0;
+    height: 100px;
+    width: 100px;
+    background: yellow;
+}
+
+.availability {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 100px;
+    border: 1px dashed red;
 }
