@@ -1,5 +1,4 @@
 <div>
-
     <h3>Magazine Editor - Add Resource </h3>
     <form name='form'
           novalidate
@@ -15,10 +14,6 @@
                     <span ng-show= 'form.age.$dirty &&
                                     form.name.$error.required'>
                                     Name is required
-                    </span>
-
-                    <span>
-                         <!--{{form.name.$error | json }}'-->
                     </span>
         </div>
 
@@ -53,10 +48,6 @@
                    ng-trim='false'
                    value = "No Comment Entered"
                    placeholder= "Optional">
-
-            <!--<span ng-show= 'form.comment.$dirty'>-->
-            <!--Comment is optional-->
-            <!--</span>-->
         </div>
 
         <br>
@@ -77,9 +68,6 @@
                           <span ng-show=" form.url.$error.required">
                                 Not Valid http:// URL</span>
 
-                    <span>
-                         <!--{{form.name.$error | json }}'-->
-                    </span>
         </div>
 
         <br>
@@ -96,7 +84,8 @@
                    ng-pattern='/^\d+$/'
                    min = "0"
                    max = "100"
-                   placeholder="0 to 100%">
+                   placeholder="0 to 100%"
+                   value="0">
 
                     <span ng-show = "form.change.$error.max ||
                                      form.change.$error.min ">
@@ -107,15 +96,10 @@
                                      form.change.$error.required">
                            Percentage must be entered.
                     </span>
-
-
-                    <span>
-                         <!--{{form.change.$error | json }}'-->
-                    </span>
-
         </div>
 
         <br>
+
         <button ng-click='reset()'>Reset</button>
 
         <button ng-disabled='form.$invalid'

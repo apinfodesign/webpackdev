@@ -1,7 +1,8 @@
-import template from './users-list.html';
+import template from './about-list.html';
 
 export default function( ngModule ) {
-    ngModule.directive( 'usersList', function() {
+
+    ngModule.directive( 'aboutList', function() {
         return {
             replace: true,
             restrict: 'E',

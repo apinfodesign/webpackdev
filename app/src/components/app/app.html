@@ -2,29 +2,12 @@
     <h3>Intelligent News Reader with Angular UI Router</h3>
 
     <nav>
-        <a ui-sref='magazines({ type: null })'>Magazines</a>
-        <a ui-sref='users'>Users</a>
+        <a ui-sref='magazines'> Magazines </a>&nbsp;
+        <a ui-sref='editorform'> Add </a>&nbsp;
+        <a ui-sref='users'>Users</a>&nbsp;
+        <a ui-sref='about'>About</a>&nbsp;
     </nav>
 
-    <section>
-        hello {{place}}
-    </section>
+    <div ui-view></div>
 
-    <section>
-        <p>show:
-            <a ui-sref='magazines({ type: null })'>
-                all
-            </a>
-
-            <a ng-repeat='type in petTypes'
-               ui-sref='magazines({ type: type })'>
-                {{type}}
-            </a>
-        </p>
-
-        <div ui-view>
-            default text: Welcome to Inteligent News Reader
-        </div>
-
-    </section>
 </div>

@@ -7,9 +7,6 @@ momentFilter( filters );
 
 export default filters.name;
 
-
-
-
 //export default function( ngModule ) {
 //    momentFilter( ngModule );
 //}

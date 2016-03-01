@@ -40,7 +40,25 @@ app.post('/api/magazines', function(req, res, next){
         new Magazine(req.body)
             .save()
             .then( magazine => res.send( magazine ) )
-            .catch( next() );
+            .catch( next );
+});
+
+
+app.delete('/api/magazines', function(req, res){
+
+    console.log ('incoming delete request: ', req.params );
+
+    res.send('DELETE request to homepage');
+
+
+    //Magazine.findByIdAndRemove = function(id, options, callback) {
+    //    if (arguments.length === 1 && typeof id === 'function') {
+    //        var msg = 'Model.findByIdAndRemove(): First argument must not be a function.' + '  ' + this.modelName + '.findByIdAndRemove(id, callback)' + '  ' + this.modelName + '.findByIdAndRemove(id)' + '  ' + this.modelName + '.findByIdAndRemove()';
+    //        throw new TypeError(msg);
+    //    }
+    //    return this.findOneAndRemove({_id: id}, options, callback);
+    //};
+
 });
 
 

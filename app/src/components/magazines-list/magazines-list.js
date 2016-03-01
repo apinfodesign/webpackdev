@@ -10,12 +10,10 @@ export default function( ngModule ) {
             restrict: 'E',
             template,
                 scope: {
-                    magazine: '=',
-                    saved: '&'
-                },
-            controller:[ '$scope', 'magazinesService', function( $scope, magazinesService ) {
-
-                $scope.search = {};
+                    magazines: '='
+                 },
+            controller:[ '$scope', 'magazinesService',
+                function( $scope, magazinesService ) {
 
                 $scope.compare = function (actual, expected) {
                     if (isNaN(expected)) {
@@ -26,23 +24,25 @@ export default function( ngModule ) {
                     }
                 };
 
-                $scope.play = true;
+                //$scope.play = true;
 
-                magazinesService.get().then(magazines => {
-                    $scope.magazines = magazines;
-                    $scope.avg = average($scope.magazines);  //works!
-                    $scope.biggerThanAverage = function (actual, avg) {
-                        console.log(actual, avg, ' is actual and average');
-                        return actual > +avg;
+                $scope.avg = average($scope.magazines);  //works!
+
+                $scope.biggerThanAverage = function (actual, avg) {                                       console.log(actual, avg, ' is actual and average');
+                    return actual > +avg;
                     };
 
+                $scope.deleteMag = function(id){
 
-                    $scope.deleteMag = function(){
+                    console.log("DELETE BUTTON", id);
+                    magazinesService.delete(id);
 
+                    //    .then( () => {
+                    //    console.log('deleting', _id);
+                    //})
+                };
 
-                    };
-
-                    $scope.applyAverage = function () {
+                $scope.applyAverage = function () {
                         if (!$scope.ageInput) {
                             $scope.ageInput = {age: $scope.avg};
                         }
@@ -51,7 +51,7 @@ export default function( ngModule ) {
                         }
                     };
 
-                    function average(array) {
+                function average(array) {
                         if (!array) {
                             return;
                         }
@@ -64,40 +64,6 @@ export default function( ngModule ) {
                             return ( ( total / array.length ) );
                         }
                     }
-
-                   // $scope.$apply();
-                });
-
-                $scope.avg = average($scope.magazines);
-
-                $scope.biggerThanAverage = function (actual, avg) {
-                    console.log(actual, avg, ' is actual and average');
-                    return actual > +avg;
-                };
-
-                $scope.applyAverage = function () {
-                    if (!$scope.ageInput) {
-                        $scope.ageInput = {age: $scope.avg};
-                    }
-                    else {
-                        $scope.ageInput = null;
-                    }
-                };
-
-                function average(array) {
-                    if (!array) {
-                        return;
-                        }
-                    else {
-                        var total = 0;
-                        for (var i = 0; i < array.length; i++) {
-                            total = total + (parseInt(array[i].age)  );
-                        }
-                        console.log(total / array.length, ' is average');
-                        return ( ( total / array.length ) );
-                    }
-                }
-
 
             }]
         };

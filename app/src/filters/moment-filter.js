@@ -11,18 +11,6 @@ export default function( ngModule ) {
 
 }
 
-export default function( ngModule ) {
-
-    ngModule.filter( 'moment', function () {
-        return function filter( date, format /*, options*/ ){
-            const momentDate = moment( date );
-            return format ? momentDate.format( format ) : momentDate.fromNow();
-        };
-    });
-
-}
-
-
 
 
 /* "stateful" filter example */
