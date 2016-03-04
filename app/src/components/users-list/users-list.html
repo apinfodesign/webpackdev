@@ -1,0 +1,33 @@
+<div>
+     <h3>Administrator - User Review Page</h3>
+
+    <table>
+        <thead>
+        <td>_id</td>
+        <td>indexid</td>
+        <td>user name</td>
+        <td>password</td>
+        <td>email</td>
+        <td>twitter</td>
+        <td>about</td>
+        <td>magazines</td>
+        <td>INACTIVATE USER</td>
+        </thead>
+
+        <tr ng-repeat="user in users">
+
+            <td>{{ user._id }}</td>
+            <td>{{ user.indexid}}</td>
+            <td>{{ user.name}}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.twitter }}</td>
+            <td>{{ user.about }}</td>
+            <td>{{ user.Array }}</td>
+
+            <td><button ng-click="inactivateUser( user._id )">X</button></td>
+
+        </tr>
+    </table>
+
+</div>

@@ -1,0 +1,43 @@
+
+<div>
+    <h3>Popular Reading Resources in Our Community</h3>
+
+        name:&nbsp;&nbsp;&nbsp;&nbsp;  <input ng-model='search.name'>&nbsp;
+        min age:                    <input ng-model='search2.age'>&nbsp;
+        <button ng-click=" search2.age=''; search.name=''; ">
+            Clear Filters
+        </button>
+
+  <br>
+    <table>
+        <thead>
+    <td>_id</td>
+    <td>number</td>
+    <td>name</td>
+    <td>age</td>
+    <td>comment</td>
+    <td>url</td>
+    <td>percent change</td>
+    <td>delete</td>
+    </thead>
+
+        <tr ng-repeat="magazine in magazines
+			| filter: search
+			| filter: search2: compare
+			| orderBy: 'name'
+			track by magazine._id ">
+
+            <td>{{ magazine._id }}</td>
+            <td>{{ $index + 1 }}</td>
+            <td>{{ magazine.name }}</td>
+            <td>{{ magazine.age }}</td>
+            <td>{{ magazine.comment }}</td>
+            <td>{{ magazine.url }}</td>
+            <td>{{ magazine.change }}</td>
+
+            <td><button ng-click="deleteMag( magazine._id )">X</button></td>
+
+        </tr>
+    </table>
+
+</div>

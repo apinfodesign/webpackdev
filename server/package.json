@@ -4,11 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "eval $(cat .env) nodemon  server.js",
+    "test": "eval $(cat .env) mocha",
+    "test-watch": "eval $(cat .env) mocha -w",
+    "api-test": "eval $(cat .env) mocha 'test-api/'"
   },
   "author": "miles hochstein",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "body-parser": "^1.14.2",
+    "express-restify-mongoose": "^3.0.1",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.4"
+
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "mocha": "^2.4.5"
   }
 }

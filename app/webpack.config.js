@@ -8,7 +8,10 @@ module.exports = {
         filename: 'bundle.js'
     },
     devtool: 'source-map',
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new HtmlWebpackPlugin({
+        template: './src/index.html'
+        })], //creates index.html using my template
+
     module: {
         preLoaders: [
             {

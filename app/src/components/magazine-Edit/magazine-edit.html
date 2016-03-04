@@ -1,0 +1,113 @@
+<div>
+    <h3>Magazine Editor - Add Resource </h3>
+    <form name='form'
+          novalidate
+          ng-submit='update()'>
+
+        <div>
+
+            <div>
+                <label>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                <input type="url"
+                       name="input"
+                       ng-model="edit.url"
+                       required
+                       ng-model-options="{ debounce: 500 }"
+                       placeholder = "http://...">
+
+                         <span  ng-show="form.input.$error.required">
+                                Full http:// URL Required</span>
+
+                          <span ng-show=" form.url.$error.required">
+                                Not Valid http:// URL</span>
+
+            </div>
+
+            <br>
+
+
+            <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input name='name'
+                   required
+                   ng-model='edit.name'
+                   ng-model-options="{ debounce: 500 }"
+                   placeholder="Name Required">
+                    <span ng-show= 'form.age.$dirty &&
+                                    form.name.$error.required'>
+                                    Name is required
+                    </span>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Age:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;</label>
+            <input  name='age'
+                    required
+                    type="number"
+                    width="50"
+                    ng-model='edit.age'
+                    ng-pattern='/^\d+$/'
+                    min = "0"
+                    max = "120"
+                    Placeholder = "0 to 120">
+                    <span ng-show= 'form.age.$dirty &&
+                                    (form.age.$error.required ||
+                                     form.age.$error.min   ||
+                                     form.age.$error.max )'>
+                                     Age between 0 and 120 is required
+                    </span>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Comment:</label>
+            <input name='comment'
+                   ng-model='edit.comment'
+                   ng-trim='false'
+                   value = "No Comment Entered"
+                   placeholder= "Optional">
+        </div>
+
+        <br>
+
+        <!--<div>-->
+            <!--<label>Percent Change:</label>-->
+
+            <!--<input name='change'-->
+                   <!--type="number"-->
+                   <!--width="50"-->
+                   <!--required-->
+                   <!--ng-model='edit.change'-->
+                   <!--ng-model-options="{ debounce: 500 }"-->
+                   <!--ng-pattern='/^\d+$/'-->
+                   <!--min = "0"-->
+                   <!--max = "100"-->
+                   <!--placeholder="0 to 100%"-->
+                   <!--value="0">-->
+
+                    <!--<span ng-show = "form.change.$error.max ||-->
+                                     <!--form.change.$error.min ">-->
+                            <!--Must be a valid percentage.-->
+                    <!--</span>-->
+
+                    <!--<span ng-show = "form.change.$dirty &&-->
+                                     <!--form.change.$error.required">-->
+                           <!--Percentage must be entered.-->
+                    <!--</span>-->
+        <!--</div>-->
+
+        <br>
+
+        <button ng-click='reset()'>Reset</button>
+
+        <button ng-disabled='form.$invalid'
+                ng-click = 'addNew()'>
+                Add Magazine
+        </button>
+
+    </form>
+</div>
