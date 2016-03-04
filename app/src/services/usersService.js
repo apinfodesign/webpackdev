@@ -1,10 +1,11 @@
+
 export default function( ngModule ) {
 
-    ngModule.provider( 'magazinesService', function (  ) {
+    ngModule.provider( 'usersService', function(){
         var url = 'http://localhost:3000';
 
         this.setUrl = function( setUrl ) {
-         	url = setUrl;
+            url = setUrl;
         };
 
         //this.successCallback= function(){console.log('success');};
@@ -12,25 +13,29 @@ export default function( ngModule ) {
 
         this.$get = function ( $http ) {
 
-            console.log('url is: ', url);
+            console.log('hitting $get in usersService');
 
             return {
 
                 get(){
-                    return $http.get( url + '/api/magazines' )
+                    return $http.get( url + '/api/users' )
                         .then( res => {
-                        return res.data;
-                    });
+                            return res.data;
+                        });
                 },
 
-                addNew(newMagazine){
-                    return $http.post( url + '/api/magazines', newMagazine);
-                 },
+
+                addNew(newUser){
+                    return $http.post( url + '/api/users', newUser);
+                },
 
                 delete(id){
                     console.log ('delete request for id : ', id);
-                    return $http.delete( url + '/api/magazines:'+ id );
-                 }
+                    return $http.delete( url + '/api/users:'+ id );
+                }
+
+
+
             };
         };
     });

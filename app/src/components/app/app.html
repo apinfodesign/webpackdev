@@ -1,12 +1,23 @@
 <div>
-    <h3>Intelligent News Reader with Angular UI Router</h3>
+    <h3>Intelligent News Reader - A Bookmarking App</h3>
 
     <nav>
+        <a ui-sref='welcome'> Welcome</a>&nbsp;
+        <a ui-sref='about'>  About</a>&nbsp;
         <a ui-sref='magazines'> Magazines </a>&nbsp;
-        <a ui-sref='editorform'> Add </a>&nbsp;
-        <a ui-sref='users'>Users</a>&nbsp;
-        <a ui-sref='about'>About</a>&nbsp;
+
+        <a ng-hide="isloggedin()" ui-sref='register'> Register</a>&nbsp;
+        <a ng-hide="isloggedin()"  ui-sref='login'> Login</a>&nbsp;
+
+        <a  ng-show="isloggedin()"  ui-sref='editorform'> Add </a>&nbsp;
+        <a  ng-show="isloggedin()"  ui-sref='users'>Users</a>&nbsp;
+        <a  ng-show="isloggedin()"  ui-sref='mybookmarks'> My Bookmarks </a>&nbsp;
+        <a  ng-show="isloggedin()"> Member Name: </a>
+        <a  ng-show="isloggedin()"  ui-sref='welcome' ng-click="logout()"> Logout </a>&nbsp;
+
     </nav>
+
+    <hr>
 
     <div ui-view></div>
 

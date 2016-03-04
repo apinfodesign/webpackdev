@@ -6,9 +6,21 @@ export default function( ngModule ) {
             replace: true,
             restrict: 'E',
             template,
-            controller() {
-                // do stuff
-            }
+            controller:[ '$scope', '$auth', function( $scope, $auth ){
+
+                $scope.logout = function() {
+                    $auth.logout();
+                };
+
+                $scope.isloggedin = function(){
+                    return $auth.isAuthenticated();
+                };
+
+                $scope.username = function(){
+                    console.log($auth.link(), 'llllsksksksk');
+                    //return $auth.link()[0];
+                };
+            }]
         };
     });
 }

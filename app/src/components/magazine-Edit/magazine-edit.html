@@ -5,6 +5,28 @@
           ng-submit='update()'>
 
         <div>
+
+            <div>
+                <label>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+                <input type="url"
+                       name="input"
+                       ng-model="edit.url"
+                       required
+                       ng-model-options="{ debounce: 500 }"
+                       placeholder = "http://...">
+
+                         <span  ng-show="form.input.$error.required">
+                                Full http:// URL Required</span>
+
+                          <span ng-show=" form.url.$error.required">
+                                Not Valid http:// URL</span>
+
+            </div>
+
+            <br>
+
+
             <label>Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
             <input name='name'
                    required
@@ -52,51 +74,31 @@
 
         <br>
 
-        <div>
-            <label>URL:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <!--<div>-->
+            <!--<label>Percent Change:</label>-->
 
-            <input type="url"
-                   name="input"
-                   ng-model="edit.url"
-                   required
-                   ng-model-options="{ debounce: 500 }"
-                   placeholder = "http://...">
+            <!--<input name='change'-->
+                   <!--type="number"-->
+                   <!--width="50"-->
+                   <!--required-->
+                   <!--ng-model='edit.change'-->
+                   <!--ng-model-options="{ debounce: 500 }"-->
+                   <!--ng-pattern='/^\d+$/'-->
+                   <!--min = "0"-->
+                   <!--max = "100"-->
+                   <!--placeholder="0 to 100%"-->
+                   <!--value="0">-->
 
-                         <span  ng-show="form.input.$error.required">
-                                Full http:// URL Required</span>
+                    <!--<span ng-show = "form.change.$error.max ||-->
+                                     <!--form.change.$error.min ">-->
+                            <!--Must be a valid percentage.-->
+                    <!--</span>-->
 
-                          <span ng-show=" form.url.$error.required">
-                                Not Valid http:// URL</span>
-
-        </div>
-
-        <br>
-
-        <div>
-            <label>Percent Change:</label>
-
-            <input name='change'
-                   type="number"
-                   width="50"
-                   required
-                   ng-model='edit.change'
-                   ng-model-options="{ debounce: 500 }"
-                   ng-pattern='/^\d+$/'
-                   min = "0"
-                   max = "100"
-                   placeholder="0 to 100%"
-                   value="0">
-
-                    <span ng-show = "form.change.$error.max ||
-                                     form.change.$error.min ">
-                            Must be a valid percentage.
-                    </span>
-
-                    <span ng-show = "form.change.$dirty &&
-                                     form.change.$error.required">
-                           Percentage must be entered.
-                    </span>
-        </div>
+                    <!--<span ng-show = "form.change.$dirty &&-->
+                                     <!--form.change.$error.required">-->
+                           <!--Percentage must be entered.-->
+                    <!--</span>-->
+        <!--</div>-->
 
         <br>
 

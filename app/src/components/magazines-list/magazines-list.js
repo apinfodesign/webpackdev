@@ -1,6 +1,7 @@
 import template from './magazines-list.html';
 import filters from '../../filters';
 
+//components enters as ngModule
 export default function( ngModule ) {
 
     ngModule.directive( 'magazinesList', function(){
@@ -15,6 +16,7 @@ export default function( ngModule ) {
             controller:[ '$scope', 'magazinesService',
                 function( $scope, magazinesService ) {
 
+
                 $scope.compare = function (actual, expected) {
                     if (isNaN(expected)) {
                         return actual.toLowerCase().indexOf(expected) > -1;
@@ -28,7 +30,8 @@ export default function( ngModule ) {
 
                 $scope.avg = average($scope.magazines);  //works!
 
-                $scope.biggerThanAverage = function (actual, avg) {                                       console.log(actual, avg, ' is actual and average');
+
+                $scope.biggerThanAverage = function (actual, avg) {
                     return actual > +avg;
                     };
 

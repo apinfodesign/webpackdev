@@ -31,7 +31,8 @@ describe( 'magazine Test Suite', () => {
 
             component = render($outerScope);
 
-            $outerScope.$digest();//after call render, let ng know to update
+            $outerScope.$digest();
+            //after call render, let ng know to update
 
             $scope = component.isolateScope();
 
