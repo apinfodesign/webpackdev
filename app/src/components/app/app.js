@@ -1,4 +1,6 @@
-import template from './app.html';
+import template from './app.html'
+import styles from './app.scss';
+
 
 export default function( ngModule ) {
     ngModule.directive( 'app', function() {

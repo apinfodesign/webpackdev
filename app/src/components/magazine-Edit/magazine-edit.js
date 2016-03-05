@@ -1,5 +1,6 @@
 import template from './magazine-edit.html';
 
+
 export default function( ngModule ) {
 
     ngModule.directive( 'magazineEdit', function(){

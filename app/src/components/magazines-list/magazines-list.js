@@ -1,5 +1,7 @@
 import template from './magazines-list.html';
 import filters from '../../filters';
+import styles from './magazines-list.scss';
+//import styles from './app.scss';
 
 //components enters as ngModule
 export default function( ngModule ) {

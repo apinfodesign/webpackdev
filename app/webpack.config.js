@@ -35,10 +35,29 @@ module.exports = {
                 test: /\.css$/,
                 loader: 'style!css'
             },
+
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                 // scss -> css -> style loader
+                 loader: 'style!css?sourceMap!sass?sourceMap'
+
+        // custom name for easier debug:
+        //loader: 'style!css?modules&sourceMap&localIdentName=[name]---[local]---[hash:base64:5]!sass?sourceMap'
+        // use "css modules", see https://github.com/css-modules/css-modules
+        //loader: 'style!css?modules&sourceMap&localIdentName=[name]---[local]---[hash:base64:5]!sass?sourceMap'
+
+            },
+
             {
                 test: /\.html$/,
                 loader: 'html'
             }
         ]
+    },
+
+    sassLoader: {
+        includePaths: ['./src/scss', './src/scss/colors']
     }
+
 };

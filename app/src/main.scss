@@ -1,12 +1,37 @@
-"use strict";
-
-@import '_style-assets';
+/*
 @import '_fonts';
+@import '_font-sizes';
+@import 'messages';
+@import 'style-assets';
+@import 'vendor';
+@import 'colors';
+@import 'othercolors';
+*/
 
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: ivory;
 }
+
+.header {border: 1px solid black;  margin: 20px; padding:10px;}
+
+/*requirement 2 - nesting */
+nav {
+
+  ul {
+    font-size: 1.2rem; color: purple;
+  }
+
+  a {
+    font-size: 1.1rem;  color: red;
+
+  }
+
+}
+
+
+
+
 
 .details {
   border: 1px solid steelblue;
