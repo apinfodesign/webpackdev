@@ -1,0 +1,40 @@
+/*requirement 3 mixins */
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+
+.header{ font-size: 1.4rem;}
+
+
+/* requirement 2 nested SCSS */
+
+.nav {
+  border: 1px solid lightblue;
+  margin: 20px;
+  padding:10px;
+
+  a { font-size: 1.1rem;
+    color: blue;
+    background-color: ghostwhite;
+    padding: 5px; border-radius:3px;
+    border: 1px solid lightseagreen;
+    text-decoration: none;
+
+    }
+  a:hover{ background-color: navajowhite;}
+
+}
+
+.main {border: 1px solid lightblue;  margin: 20px; padding:10px;}

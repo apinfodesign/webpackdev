@@ -1,0 +1,25 @@
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+
+/*requirment 4 extensions  */
+
+.success {
+  @extend .message;
+  border-color: green;
+}
+
+.error {
+  @extend .message;
+  border-color: red;
+  color: red;
+  border: 2px solid black;
+}
+
+.warning {
+  @extend .message;
+  border-color: orange;
+}
