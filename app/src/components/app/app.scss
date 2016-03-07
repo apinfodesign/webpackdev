@@ -25,10 +25,16 @@
   margin: 20px;
   padding:10px;
 
-  a { font-size: 1.1rem; color: blue;  background-color: ghostwhite;
+  a { font-size: 1.1rem;
+    color: blue;
+    background-color: ghostwhite;
     padding: 5px; border-radius:3px;
-    border: 1px solid lightseagreen;}
+    border: 1px solid lightseagreen;
+    text-decoration: none;
+
+    }
+  a:hover{ background-color: navajowhite;}
 
 }
 
-.main {border: 1px solid lightblue;  margin: 20px; padding:10px}
+.main {border: 1px solid lightblue;  margin: 20px; padding:10px;}

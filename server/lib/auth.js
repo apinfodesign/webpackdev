@@ -46,6 +46,11 @@ router.post('/twitter', function(req, res) {
             verifier: req.body.oauth_verifier
         };
 
+
+        console.log('accessTokenOauth name is ', accessTokenOauth);
+
+
+
         // Step 3. Exchange oauth token and oauth verifier for access token.
         request.post({ url: accessTokenUrl, oauth: accessTokenOauth }, function(err, response, accessToken) {
 
@@ -81,6 +86,10 @@ router.post('/twitter', function(req, res) {
 
                             user.twitter = profile.id;
                             user.displayName = user.displayName || profile.name;
+
+                            console.log("xxxxxx", user.twitter);
+
+
                             user.picture = user.picture || profile.profile_image_url.replace('_normal', '');
                             user.save(function(err) {
                                 res.send({ token: createJWT(user) });

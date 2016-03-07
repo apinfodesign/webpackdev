@@ -6,25 +6,14 @@ import services from './services';
 import passData from './pass-data';
 import components from './components';
 import ngDialog from 'ng-dialog';
-
-//import './css/main.css';
 import './main.scss';
-
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 
-//import template from './app.html';
-//import filters from './filters';
-
 const API_URL = 'http://localhost:3000';
-
 const app = angular.module( 'myApp', [
     angularResource, uirouter, components, services, satellizer, ngDialog
 ]);
-
-
-
-
 
 app.controller('AppCtrl', [ '$scope', function( $scope ){
     $scope.created = new Date();
@@ -37,11 +26,9 @@ app.config( function( $authProvider ) {
         // authorizationEndpoint: 'https://api.twitter.com/oauth/authenticate',
         // redirectUri: window.location.origin,
         // type: '1.0',
-        // popupOptions: { width: 495, height: 645 }
+         popupOptions: { width: 495, height: 645 }
     });
 });
-
-
 
 app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
@@ -90,7 +77,7 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 url: '/users',
                 template: '<users-list users="users"/>',
                 resolve: {
-                    users ( nextUsersService ){     //this is what fails!
+                    users ( nextUsersService ){
                         console.log('resolving users');
                         return nextUsersService.get();
                     }
@@ -100,19 +87,16 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
             .state( 'about', {
                 url: '/about',
-                //data: {
-                //    requireAuth: true
-                //},
                 template: '<about-list about="about"/>',
                 controller: passData()
             })
+
 
             .state( 'mybookmarks', {
                 url: '/mybookmarks',
                 data: {
                     requireAuth: true
                 },
-                //template: '<h1>hello boomkarks list </h1>',
                 template: '<userBookmarks-list >',
                 controller: passData()
             })
@@ -133,7 +117,6 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
 app.run( [ '$rootScope', 'ngDialog', '$state', '$auth',
     function ( $rootScope, ngDialog, $state, $auth ) {
-
 
         $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
 
@@ -156,7 +139,6 @@ app.run( [ '$rootScope', 'ngDialog', '$state', '$auth',
                     .catch( () => alert( 'failure!') );
             }
         });
-
     }]);
 
 

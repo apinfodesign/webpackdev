@@ -11,11 +11,13 @@ import usersList from './users-list/users-list';
 
 import userBookmarksList from './mybookmarks-list/userBookmarks-list';
 
-import aboutList from './about-list/about-list';
 import login from './login/login';
 import register from './register/register';
 import logout from './log-out/log-out';
 
+import aboutList from './about-list/about-list';
+//import mission from 'mission/mission-list';
+//import privacy from 'privacy/privacy-list';
 
 const components = angular.module( 'components', [] );
 
@@ -24,6 +26,8 @@ app( components );
 magazineEdit( components );
 magazinesList( components );
 aboutList( components );
+//mission ( components );
+//privacy ( components );
 usersList( components );
 //usersEdit( components );
 

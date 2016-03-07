@@ -18,10 +18,6 @@ export default function( ngModule ) {
                     return $auth.isAuthenticated();
                 };
 
-                $scope.username = function(){
-                    console.log($auth.link(), 'llllsksksksk');
-                    //return $auth.link()[0];
-                };
             }]
         };
     });
