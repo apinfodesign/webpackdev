@@ -1,4 +1,5 @@
 import template from './magazine-edit.html';
+import styles from './magazine-edit.scss';
 
 
 export default function( ngModule ) {

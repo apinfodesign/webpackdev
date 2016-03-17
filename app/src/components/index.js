@@ -21,19 +21,24 @@ import aboutList from './about-list/about-list';
 
 const components = angular.module( 'components', [] );
 
-welcome( components );
 app( components );
-magazineEdit( components );
+welcome( components );
+
 magazinesList( components );
-aboutList( components );
+magazineEdit( components );
+
 //mission ( components );
 //privacy ( components );
-usersList( components );
-//usersEdit( components );
 
+usersList( components );
+userBookmarksList( components );
+
+//usersEdit( components );
 login( components );
 logout( components );
-userBookmarksList( components );
+
+aboutList( components );
+
 register( components );
 
 export default components.name;

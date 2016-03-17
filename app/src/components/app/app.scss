@@ -15,7 +15,7 @@
   #{$name}: #{$argument};
 }
 
-.header{ font-size: 1.4rem;}
+.header{ font-size: 1.6rem;}
 
 
 /* requirement 2 nested SCSS */
@@ -25,7 +25,11 @@
   margin: 20px;
   padding:10px;
 
-  a { font-size: 1.1rem;
+  a {
+
+    font-size: 1.1rem;
+   /* font-size: $large-font;*/
+
     color: blue;
     background-color: ghostwhite;
     padding: 5px; border-radius:3px;
@@ -37,4 +41,7 @@
 
 }
 
-.main {border: 1px solid lightblue;  margin: 20px; padding:10px;}
+.main {border: 5px solid red;  margin: 20px; padding:10px;}
+
+
+

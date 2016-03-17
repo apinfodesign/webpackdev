@@ -6,7 +6,9 @@ import services from './services';
 import passData from './pass-data';
 import components from './components';
 import ngDialog from 'ng-dialog';
+
 import './main.scss';
+
 import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 

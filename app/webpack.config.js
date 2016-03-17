@@ -57,7 +57,7 @@ module.exports = {
     },
 
     sassLoader: {
-        includePaths: ['./src/scss', './src/scss/colors']
+        includePaths: [ './src/scssSMACS']
     }
 
 };
