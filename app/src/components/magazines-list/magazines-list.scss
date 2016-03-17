@@ -1,0 +1,31 @@
+td {border-bottom: 1px solid black; padding-top: 5px; padding-bottom: 5px;}
+
+.searchform {padding:20px; background-color: #9e9e9e;}
+
+.odd {background-color: ghostwhite;}
+
+.container {
+
+  flex-direction: row;
+  flex-wrap: wrap;
+  display:  inline-flex ;
+  justify-content:  space-between;
+}
+
+.item {
+  flex-basis: 100px;
+  order: 0;
+  width: 200px;
+  height: 150px;
+
+  margin: 10px;
+  padding: 10px;
+
+  background-color: palevioletred;
+  font-size: 1rem;
+
+  .isSelected {
+    background-color: red;
+  }
+
+}

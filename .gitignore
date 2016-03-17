@@ -5,3 +5,4 @@ node*
 .idea*
 .idea/workspace.xml
 npm-debug.log
+.env
