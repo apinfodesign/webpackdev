@@ -56,10 +56,6 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
             .state( 'editorform', {
                 url: '/editorform',
-                data: {
-                    requireAuth: true
-                },
-
                 template: '<magazine-edit magazines="magazines"/>',
                 resolve: {
                     magazines ( magazinesService, $stateParams ){
@@ -68,10 +64,8 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 controller: passData([ 'magazines' ])
             })
 
-
-
             .state( 'magazines', {
-                url: '/magazines?detail',
+                url: '/magazines',
                 template: '<magazines-list magazines="magazines"/>',
                 resolve: {
                     magazines ( magazinesService, $stateParams ) {
@@ -81,18 +75,19 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 controller: passData( [ 'magazines' ] )
             })
 
-            .state( 'magazines.detail', {
-                url: '/magazines.detail',
-                template:  '<magazines-list magaiznes="magazines"/>',
-                resolve: {
-                    magaines (magazinesServices, $stateParams ) {
-                        return magazinesService.get();
-                    }
 
-                }
 
-            })
-
+            //.state( 'magazines', {
+            //    url: '/magazines',
+            //    template: '<magazines-list magazines="magazines"/>',
+            //    resolve: {
+            //        magazines ( magazinesService, $stateParams ) {
+            //            return magazinesService.get();
+            //        }
+            //    },
+            //    controller: passData( [ 'magazines' ] )
+            //})
+            //
 
 
 

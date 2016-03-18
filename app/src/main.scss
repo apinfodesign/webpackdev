@@ -9,3 +9,39 @@ body {
 .header {border: 1px solid black;  margin: 20px; padding:10px;}
 
 .entireapp{ border: 5px dashed blue; }
+
+
+/*media query */
+
+@media only screen and (max-width: 1200px) and (min-width: 600px) {
+  body {
+    background-color: yellow;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+
+/* mixin */
+
+@mixin headline ($color, $size) {
+  color: $color;
+  font-size: $size;
+}
+
+$font-base: 1.5rem;
+$color-base: red;
+
+@mixin sample {
+  font-size: $font-base;
+  color: $color-base;
+  background-color: green;
+}
+
+p {
+  @include sample;
+}
