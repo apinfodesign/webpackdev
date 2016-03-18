@@ -74,7 +74,7 @@ function ensureAuthenticated(req, res, next) {
 //app.use( userRouter );
 
 //get all magazines in magazines
-app.get('/api/magazines', function (req,res){
+app.get('/api/magazines', ensureAuthenticated , function (req,res){
     Magazine.find({})
         .exec(function(err, magazine){
             if (err) {
@@ -86,7 +86,7 @@ app.get('/api/magazines', function (req,res){
 });
 
 //create new magazine in magazines
-app.post('/api/magazines', function(req, res, next){
+app.post('/api/magazines', ensureAuthenticated,  function(req, res, next){
 
     console.log ( req.body );
 
@@ -96,8 +96,9 @@ app.post('/api/magazines', function(req, res, next){
         .catch( next );
 });
 
+
 //delete a magazine in magazines
-app.delete('/api/magazines', function(req, res){
+app.delete('/api/magazines', ensureAuthenticated,  function(req, res){
 
     console.log ('incoming delete request: ', req.params );
 
@@ -115,7 +116,7 @@ app.delete('/api/magazines', function(req, res){
 });
 
 //get all users for administration WORKS
-app.get('/api/activeusers', function(req,res,next){
+app.get('/api/activeusers', ensureAuthenticated, function(req,res,next){
     var getSize = 1000;
     User.find( {activestatus: { $ne: 'inactive'} } )
         .sort({created: 'descending'})
@@ -136,7 +137,7 @@ app.get('/api/activeusers', function(req,res,next){
 //get a user and users magazine list
 //get all users in users
 
-app.get('/api/users', function (req,res){
+app.get('/api/users', ensureAuthenticated, function (req,res){
 
     console.log ('hitting api/users');
 

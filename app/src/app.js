@@ -56,6 +56,10 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
             .state( 'editorform', {
                 url: '/editorform',
+                data: {
+                    requireAuth: true
+                },
+
                 template: '<magazine-edit magazines="magazines"/>',
                 resolve: {
                     magazines ( magazinesService, $stateParams ){
