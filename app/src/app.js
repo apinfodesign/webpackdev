@@ -94,7 +94,7 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
             //        }
             //    }
             //})
-            ///current working above
+            ///  END current working above
 
 
 
@@ -119,6 +119,7 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 },
                 controller: passData( [ 'pets' ] )
             })
+
 
             .state( 'magazines.type', {
                 url: '/type/:magazineType',

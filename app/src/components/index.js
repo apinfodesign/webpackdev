@@ -4,6 +4,9 @@ import app from './app/app';
 import welcome from './welcome/welcome-list';
 
 import magazinesList from './magazines-list/magazines-list';
+
+import magazineTypeDetail from './magazine-type/details/details';
+
 import magazineEdit from './magazine-edit/magazine-edit';
 
 import usersList from './users-list/users-list';
