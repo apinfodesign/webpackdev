@@ -97,6 +97,9 @@ app.post('/api/magazines', ensureAuthenticated,  function(req, res, next){
 });
 
 
+
+
+
 //delete a magazine in magazines
 app.delete('/api/magazines', ensureAuthenticated,  function(req, res){
 

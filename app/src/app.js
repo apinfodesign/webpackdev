@@ -68,8 +68,10 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 controller: passData([ 'magazines' ])
             })
 
+
+
             .state( 'magazines', {
-                url: '/magazines',
+                url: '/magazines?detail',
                 template: '<magazines-list magazines="magazines"/>',
                 resolve: {
                     magazines ( magazinesService, $stateParams ) {
@@ -78,6 +80,22 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 },
                 controller: passData( [ 'magazines' ] )
             })
+
+            .state( 'magazines.detail', {
+                url: '/magazines.detail',
+                template:  '<magazines-list magaiznes="magazines"/>',
+                resolve: {
+                    magaines (magazinesServices, $stateParams ) {
+                        return magazinesService.get();
+                    }
+
+                }
+
+            })
+
+
+
+
 
             .state( 'users', {
                 url: '/users',
