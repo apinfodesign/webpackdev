@@ -67,7 +67,6 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
 
             ////current working version with no nested views
-
             //.state( 'magazines', {
             //    url: '/magazines',
             //    template: '<magazines-list magazines="magazines"/>',
@@ -78,6 +77,7 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
             //    },
             //    controller: passData( [ 'magazines' ] )
             //})
+
             //
             //.state( 'magazines.type', {
             //    url: '/type/:magazineType',
@@ -98,13 +98,13 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
 
 
+
             ///new  version with details and nested views below
             .state( 'magazines', {
                 url: '/magazines?type',
                 template: `<magazines magazines="magazines"/>`,
                 resolve: {
                     magazines ( MagazineService, $stateParams ) {
-
 
                         //return magazinesService.get();
 

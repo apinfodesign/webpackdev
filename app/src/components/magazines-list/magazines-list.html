@@ -29,10 +29,10 @@
                 {{ magazine._id }}<br>
                 {{ magazine.comment }}<br><br>
 
+                <a ng-show="isloggedin()"  ui-sref='magazines.type({ magazineType: magazine.type })'>
+                    {{magazine.type}}
+                </a>
 
-                <span style='color: blue' ui-sref='magazines.type({ magazineType: magazine.type })'>
-			    {{magazine.type}}
-		        </span>
                 <br><br>
 
                 <button ng-click="deleteMag( magazine._id )">X</button>
