@@ -12,23 +12,7 @@
     </div>
 
   <br>
-    <!--<table>-->
-        <!--<thead>-->
-    <!--<td>_id</td>-->
-    <!--<td>number</td>-->
-    <!--<td>name</td>-->
-    <!--<td>age</td>-->
-    <!--<td>comment</td>-->
-    <!--<td>url</td>-->
-    <!--<td>percent change</td>-->
-    <!--<td>delete</td>-->
-    <!--</thead>-->
 
-        <!--<tr ng-class-odd=" 'odd' " ng-class-even=" 'even' "  ng-repeat="magazine in magazines-->
-			<!--| filter: search-->
-			<!--| filter: search2: compare-->
-			<!--| orderBy: 'name'-->
-			<!--track by magazine._id ">-->
 
 
         <div class="container"   ng-class-odd=" 'odd' " ng-class-even=" 'even' "
@@ -41,16 +25,15 @@
             <div class = "item">
 
                <a href = "{{magazine.url}}">{{magazine.name}}</a><br>
-                {{magazine.url}}<br>
-                {{magazine._id }}<br>
-                {{ magazine.comment }}<br>
-                <!--<td>{{ magazine._id }}</td>-->
-                <!--<td>{{ $index + 1 }}</td>-->
-                <!--<td>{{ magazine.name }}</td>-->
-                <!--<td>{{ magazine.age }}</td>-->
-                <!--<td>{{ magazine.comment }}</td>-->
-                <!--<td>{{ magazine.url }}</td>-->
-                <!--<td>{{ magazine.change }}</td>-->
+                {{ magazine.url}}<br>
+                {{ magazine._id }}<br>
+                {{ magazine.comment }}<br><br>
+
+
+                <span style='color: blue' ui-sref='magazines.type({ magazineType: magazine.type })'>
+			    {{magazine.type}}
+		        </span>
+                <br><br>
 
                 <button ng-click="deleteMag( magazine._id )">X</button>
             </div>
@@ -59,4 +42,6 @@
         </tr>
     <!--</table>-->
 
+
 </div>
+

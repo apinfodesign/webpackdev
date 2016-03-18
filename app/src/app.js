@@ -13,6 +13,7 @@ import 'ng-dialog/css/ngDialog.css';
 import 'ng-dialog/css/ngDialog-theme-default.css';
 
 const API_URL = 'http://localhost:3000';
+
 const app = angular.module( 'myApp', [
     angularResource, uirouter, components, services, satellizer, ngDialog
 ]);
@@ -64,18 +65,8 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 controller: passData([ 'magazines' ])
             })
 
-            .state( 'magazines', {
-                url: '/magazines',
-                template: '<magazines-list magazines="magazines"/>',
-                resolve: {
-                    magazines ( magazinesService, $stateParams ) {
-                        return magazinesService.get();
-                    }
-                },
-                controller: passData( [ 'magazines' ] )
-            })
 
-
+            ////current working version with no nested views
 
             //.state( 'magazines', {
             //    url: '/magazines',
@@ -88,8 +79,64 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
             //    controller: passData( [ 'magazines' ] )
             //})
             //
+            //.state( 'magazines.type', {
+            //    url: '/type/:magazineType',
+            //    views: {
+            //        details: {
+            //            template: `<maagazine-type-details type="magazineType"/>`,
+            //            controller: passData()
+            //        },
+            //        picture: {
+            //            template: `<magazine-type-picture type="magazineType"/>`
+            //        },
+            //        availability: {
+            //            template: `<magazine-type-availability type="magaineType"/>`
+            //        }
+            //    }
+            //})
+            ///current working above
 
 
+
+            ///new  version with details and nested views below
+            .state( 'magazines', {
+                url: '/magazines?type',
+                template: `<magazines magazines="magazines"/>`,
+                resolve: {
+                    magazines ( MagazineService, $stateParams ) {
+
+
+                        //return magazinesService.get();
+
+                        return MagazineService.query({
+                            query: {
+                                type: $stateParams.type
+                            }
+                        }).$promise;
+
+
+                    }
+                },
+                controller: passData( [ 'pets' ] )
+            })
+
+            .state( 'magazines.type', {
+                url: '/type/:magazineType',
+                views: {
+                    details: {
+                        template: `<magazine-type-details type="magazineType"/>`,
+                        controller: passData()
+                    },
+                    picture: {
+                        template: `<magazine-type-picture type="magazineType"/>`
+                    },
+                    availability: {
+                        template: `<magazine-type-availability type="magazineType"/>`
+                    }
+                }
+            })
+
+            ////////new end
 
 
             .state( 'users', {
