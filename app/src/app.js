@@ -117,7 +117,7 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
                     }
                 },
-                controller: passData( [ 'pets' ] )
+                controller: passData( [ 'magazines' ] )
             })
 
 
