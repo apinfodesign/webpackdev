@@ -1,0 +1,47 @@
+
+<div>
+    <h3>Popular Reading Resources in Our Community</h3>
+
+
+    <div class="searchform">
+        name:&nbsp;&nbsp;&nbsp;&nbsp;  <input ng-model='search.name'>&nbsp;
+        min age:                    <input ng-model='search2.age'>&nbsp;
+        <button ng-click=" search2.age=''; search.name=''; ">
+            Clear Filters
+        </button>
+    </div>
+
+  <br>
+  <p>ooooooooo</p>
+
+
+        <div class="container"   ng-class-odd=" 'odd' " ng-class-even=" 'even' "
+             ng-repeat="magazine in magazines
+			| filter: search
+			| filter: search2: compare
+			| orderBy: 'name'
+			track by magazine._id ">
+
+            <div class = "item">
+
+               <a href = "{{magazine.url}}">{{magazine.name}}</a><br>
+                {{ magazine.url}}<br>
+                {{ magazine._id }}<br>
+                {{ magazine.comment }}<br><br>
+
+                <a ng-show="isloggedin()"  ui-sref='magazines.type({ magazineType: magazine.type })'>
+                    {{magazine.type}}
+                </a>
+
+                <br><br>
+
+                <button ng-click="deleteMag( magazine._id )">X</button>
+            </div>
+        </div>
+
+        </tr>
+    <!--</table>-->
+
+
+</div>
+

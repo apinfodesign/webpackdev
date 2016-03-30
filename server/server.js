@@ -1,23 +1,6 @@
-const express = require('express');
-const app = express();
+const mongoose = require( './lib/mongooseConfig' );
+const app = require( './lib/app' );
 
-app.use(express.static(__dirname + '/public'));
+const port = process.env.PORT || 3000;
 
-app.use(( req, res, next ) => {
-    const url = '*';
-
-    res.header('Access-Control-Allow-Origin', url);
-    res.header('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    next();
-});
-
-
-app.get('/api/monkeys', function (req, res) {
-    res.send('good morning zoo ');
-});
-
-
-
-console.log("listening 3000");
-app.listen(3000);
+app.listen( port, () => console.log( `Magic Server Listening on Port ${port}...` ) );

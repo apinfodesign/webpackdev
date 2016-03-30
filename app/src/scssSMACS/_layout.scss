@@ -1,0 +1,44 @@
+/* LAYOUT */
+/*requirement 2 - nesting */
+
+
+@import "font-sizes";
+
+.header {border: 15px solid black;
+      margin: 20px; padding:10px;
+      background-color: pink;
+      font-size: $super-font;
+}
+
+
+
+nav {
+
+  ul {
+    font-size: $super-font;  color: purple;
+  }
+
+  a {
+    font-size: $super-font;  color: red;
+  }
+
+  background-color: orange;
+
+}
+
+
+.footer {
+  padding: 10px;
+  font-size: $med-font;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 16px;
+  width: 100%;
+  background-color: lightblue;
+}
+
+
+
