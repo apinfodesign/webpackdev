@@ -17,6 +17,9 @@ export default function( ngModule ) {
             return {
 
                 get(){
+
+                    console.log("here is get in magazinesService");
+
                     return $http.get( url + '/api/magazines' )
                         .then( res => {
                         return res.data;

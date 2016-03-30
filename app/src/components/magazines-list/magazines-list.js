@@ -4,6 +4,7 @@ import styles from './magazines-list.scss';
 //import styles from './app.scss';
 
 //components enters as ngModule
+
 export default function( ngModule ) {
 
     ngModule.directive( 'magazinesList', function(){
@@ -15,6 +16,7 @@ export default function( ngModule ) {
                 scope: {
                     magazines: '='
                  },
+
             controller:[ '$scope', 'magazinesService',
                 function( $scope, magazinesService ) {
 

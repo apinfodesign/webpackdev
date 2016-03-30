@@ -58,27 +58,36 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
             .state( 'editorform', {
                 url: '/editorform',
                 template: '<magazine-edit magazines="magazines"/>',
-                resolve: {
-                    magazines ( magazinesService, $stateParams ){
-                    }
-                },
+
+                //resolve: {
+                //    magazines ( magazinesService, $stateParams ){
+                //
+                //
+                //
+                //    }
+                //},
+
                 controller: passData([ 'magazines' ])
             })
 
-
             ////current working version with no nested views
-            //.state( 'magazines', {
-            //    url: '/magazines',
-            //    template: '<magazines-list magazines="magazines"/>',
-            //    resolve: {
-            //        magazines ( magazinesService, $stateParams ) {
-            //            return magazinesService.get();
-            //        }
-            //    },
-            //    controller: passData( [ 'magazines' ] )
-            //})
+            .state( 'magazines', {
+                url: '/magazines',
+                template: '<magazines-list magazines="magazines"/>',
 
-            //
+                //resolve: {
+                //    magazines ( magazinesService  ) {
+                //
+                //        return magazinesService.get();
+                //    }
+                //},
+
+
+
+                controller: passData( [ 'magazines' ] )
+            })
+
+
             //.state( 'magazines.type', {
             //    url: '/type/:magazineType',
             //    views: {
@@ -100,42 +109,42 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
 
             ///new  version with details and nested views below
-            .state( 'magazines', {
-                url: '/magazines?type',
-                template: `<magazines magazines="magazines"/>`,
-                resolve: {
-                    magazines ( MagazineService, $stateParams ) {
-
-                        //return magazinesService.get();
-
-                        return MagazineService.query({
-                            query: {
-                                type: $stateParams.type
-                            }
-                        }).$promise;
-
-
-                    }
-                },
-                controller: passData( [ 'magazines' ] )
-            })
-
-
-            .state( 'magazines.type', {
-                url: '/type/:magazineType',
-                views: {
-                    details: {
-                        template: `<magazine-type-details type="magazineType"/>`,
-                        controller: passData()
-                    },
-                    picture: {
-                        template: `<magazine-type-picture type="magazineType"/>`
-                    },
-                    availability: {
-                        template: `<magazine-type-availability type="magazineType"/>`
-                    }
-                }
-            })
+            //.state( 'magazines', {
+            //    url: '/magazines?type',
+            //    template: `<magazines magazines="magazines"/>`,
+            //    resolve: {
+            //        magazines ( MagazineService, $stateParams ) {
+            //
+            //            //return magazinesService.get();
+            //
+            //            return MagazineService.query({
+            //                query: {
+            //                    type: $stateParams.type
+            //                }
+            //            }).$promise;
+            //
+            //
+            //        }
+            //    },
+            //    controller: passData( [ 'magazines' ] )
+            //})
+            //
+            //
+            //.state( 'magazines.type', {
+            //    url: '/type/:magazineType',
+            //    views: {
+            //        details: {
+            //            template: `<magazine-type-details type="magazineType"/>`,
+            //            controller: passData()
+            //        },
+            //        picture: {
+            //            template: `<magazine-type-picture type="magazineType"/>`
+            //        },
+            //        availability: {
+            //            template: `<magazine-type-availability type="magazineType"/>`
+            //        }
+            //    }
+            //})
 
             ////////new end
 

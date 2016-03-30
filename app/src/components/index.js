@@ -1,4 +1,5 @@
 import angular from 'angular';
+
 import app from './app/app';
 
 import welcome from './welcome/welcome-list';
