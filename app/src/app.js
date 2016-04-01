@@ -68,8 +68,6 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 controller: passData([ 'magazines' ])
             })
 
-
-
             .state( 'magazines', {
                 url: '/magazines?detail',
                 template: '<magazines-list magazines="magazines"/>',
@@ -93,10 +91,6 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
 
             })
 
-
-
-
-
             .state( 'users', {
                 url: '/users',
                 template: '<users-list users="users"/>',
@@ -114,7 +108,6 @@ app.config( function( $stateProvider, $locationProvider, $urlRouterProvider ) {
                 template: '<about-list about="about"/>',
                 controller: passData()
             })
-
 
             .state( 'mybookmarks', {
                 url: '/mybookmarks',

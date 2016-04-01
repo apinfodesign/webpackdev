@@ -142,7 +142,7 @@ app.get('/api/activeusers', ensureAuthenticated, function(req,res,next){
 
 app.get('/api/users', ensureAuthenticated, function (req,res){
 
-    console.log ('hitting api/users');
+    console.log ('xxx hitting api/users');
 
     User.find({})
         .exec(function(err, user){

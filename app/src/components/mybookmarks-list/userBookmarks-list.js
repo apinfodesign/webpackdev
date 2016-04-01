@@ -1,5 +1,5 @@
 import template from './userBookmarks-list.html';
-import filters from '../../filters';
+//import filters from '../../filters';
 
 export default function( ngModule ) {
 
