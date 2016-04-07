@@ -30,6 +30,7 @@ app.use( ( req, res, next ) => {
     // res.header( 'Access-Control-Allow-Credentials', true );
     res.header( 'Access-Control-Allow-Methods', 'POST, GET, OPTIONS, PUT, DELETE' );
     res.header( 'Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization' );
+
     next();
 });
 
@@ -88,7 +89,7 @@ app.get('/api/magazines', ensureAuthenticated , function (req,res){
 //create new magazine in magazines
 app.post('/api/magazines', ensureAuthenticated,  function(req, res, next){
 
-    console.log ( req.body );
+    console.log ( 'SERVER CREATING NEW MAG>>>', req.body );
 
     new Magazine(req.body)
         .save()
@@ -97,18 +98,22 @@ app.post('/api/magazines', ensureAuthenticated,  function(req, res, next){
 });
 
 
-
-
-
 //delete a magazine in magazines
-app.delete('/api/magazines', ensureAuthenticated,  function(req, res){
 
-    console.log ('incoming delete request: ', req.params );
+app.delete('/api/magazines/:id', ensureAuthenticated, function(req, res){
 
-    res.send('DELETE request to homepage');
+    console.log ('SERVER incoming delete request: ', req.params.id );
 
+    Magazine.findOneAndRemove({
+        _id: req.params.id
+    }, function (err, data){
+        if (err) { console.log("error is: ", err)
+        }else{
+            res.send('data deleted', data )
+        }
+    })
 
-    //Magazine.findByIdAndRemove = function(id, options, callback) {
+    // Magazine.findByIdAndRemove = function(id, options, callback) {
     //    if (arguments.length === 1 && typeof id === 'function') {
     //        var msg = 'Model.findByIdAndRemove(): First argument must not be a function.' + '  ' + this.modelName + '.findByIdAndRemove(id, callback)' + '  ' + this.modelName + '.findByIdAndRemove(id)' + '  ' + this.modelName + '.findByIdAndRemove()';
     //        throw new TypeError(msg);

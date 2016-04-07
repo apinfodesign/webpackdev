@@ -11,9 +11,6 @@ export default function( ngModule ) {
         //this.errorCallback = function(){console.log('that did not work');};
 
         this.$get = function ( $http ) {
-
-            console.log('url is: ', url);
-
             return {
 
                 get(){
@@ -24,13 +21,17 @@ export default function( ngModule ) {
                 },
 
                 addNew(newMagazine){
+                    console.log('CREATING'+ url +'/api/magazines >>'+ newMagazine);
                     return $http.post( url + '/api/magazines', newMagazine);
-                 },
+                },
 
                 delete(id){
-                    console.log ('delete request for id : ', id);
-                    return $http.delete( url + '/api/magazines:'+ id );
-                 }
+                    console.log('HITTING>>>'+ url +'/api/magazines>>>'+ id);
+                    return $http.delete( url + '/api/magazines/'+ id )
+
+
+                }
+
             };
         };
     });

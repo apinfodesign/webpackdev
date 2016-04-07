@@ -18,7 +18,6 @@ export default function( ngModule ) {
             controller:[ '$scope', 'magazinesService',
                 function( $scope, magazinesService ) {
 
-
                 $scope.compare = function (actual, expected) {
                     if (isNaN(expected)) {
                         return actual.toLowerCase().indexOf(expected) > -1;
@@ -28,23 +27,22 @@ export default function( ngModule ) {
                     }
                 };
 
-                //$scope.play = true;
-
                 $scope.avg = average($scope.magazines);  //works!
-
 
                 $scope.biggerThanAverage = function (actual, avg) {
                     return actual > +avg;
                     };
 
-                $scope.deleteMag = function(id){
-
-                    console.log("DELETE BUTTON", id);
-                    magazinesService.delete(id);
-
-                    //    .then( () => {
-                    //    console.log('deleting', _id);
-                    //})
+                $scope.deleteMag = function(magazine){
+                    console.log("DELETE BUTTON", magazine);
+                    magazinesService.delete(magazine._id)
+                        .then( () => {
+                            console.log('deleting', magazine._id);
+                        var index = $scope.magazines.indexOf(magazine);
+                            if (index !== -1){
+                            $scope.magazines.splice(index,1);
+                            }
+                         })
                 };
 
                 $scope.applyAverage = function () {
