@@ -2,14 +2,9 @@
     <br>
     <h2>Register as New User</h2>
      <br>
-    <form
-            data-ng-submit="User.registerValidUser(User);
-						User.userViewSwitch='profile';"
-            name = "regForm"
-            novalidate>
+    <form ng-submit ="submit(User)" novalidate>
 
         <div class="form group">
-
             <input class= "form-control"
                    type="text"
                    data-ng-model="User.username"
@@ -24,7 +19,7 @@
             <input class= "form-control" id="emailConfirm"  type="email"
                    data-ng-model="User.email"
                    data-ng-keyup="User.checktheemail(User.email)"
-                   placeholder="E-mail.  Required for password recovery.  Private."
+                   placeholder="E-mail.  Required, but private & never spammed."
                    size="50"
                    required>
         </div>
@@ -64,6 +59,7 @@
                 type="submit"
                 size="50"
                 value="Register Now!">
+
 
     </form>
     <br>

@@ -8,7 +8,8 @@ export default function( ngModule ) {
             replace: true,
             restrict: 'E',
             template,
-            controller:[ '$scope', '$auth', function( $scope, $auth ){
+            controller:[ '$scope', '$auth', 'magazinesService',
+                        function( $scope, $auth, magazinesService ){
 
                 $scope.logout = function() {
                     $auth.logout();
@@ -17,6 +18,7 @@ export default function( ngModule ) {
                 $scope.isloggedin = function(){
                     return $auth.isAuthenticated();
                 };
+
 
             }]
         };

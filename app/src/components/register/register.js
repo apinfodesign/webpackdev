@@ -20,8 +20,17 @@ export default function( ngModule ) {
                             alert( 'problem!' );
                         });
                 };
-            }
 
+                $scope.submit = function(User) {
+                    console.log('registering new user');
+                    console.log(User.email);
+                    console.log(User.username);
+                    console.log(User.password);
+
+
+                };
+
+            }
 
         };
     });

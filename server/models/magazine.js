@@ -9,6 +9,7 @@ module.exports = mongoose.model( 'Magazine', new Schema({
     change: String,
     type: String,
     userList: Array,
+    username: String,
     user: { type: Schema.Types.ObjectId, ref: 'User' }
     },
     {

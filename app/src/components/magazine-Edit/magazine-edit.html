@@ -1,6 +1,9 @@
 <div class = "editbox" >
 
-    <h1>Magazine Editor - Add Resource </h1>
+    <h1>Magazine Editor - Add Resource - </h1>
+
+    <h3>User Name: {{$scope.user.name}}{{$scope.user.twitter}}</h3>
+
     <form name='form'
           novalidate
           ng-submit='update()'>
@@ -22,7 +25,6 @@
 
                           <span ng-show=" form.url.$error.required">
                                 Not Valid http:// URL</span>
-
             </div>
 
             <br>
@@ -75,31 +77,7 @@
 
         <br>
 
-        <!--<div>-->
-            <!--<label>Percent Change:</label>-->
 
-            <!--<input name='change'-->
-                   <!--type="number"-->
-                   <!--width="50"-->
-                   <!--required-->
-                   <!--ng-model='edit.change'-->
-                   <!--ng-model-options="{ debounce: 500 }"-->
-                   <!--ng-pattern='/^\d+$/'-->
-                   <!--min = "0"-->
-                   <!--max = "100"-->
-                   <!--placeholder="0 to 100%"-->
-                   <!--value="0">-->
-
-                    <!--<span ng-show = "form.change.$error.max ||-->
-                                     <!--form.change.$error.min ">-->
-                            <!--Must be a valid percentage.-->
-                    <!--</span>-->
-
-                    <!--<span ng-show = "form.change.$dirty &&-->
-                                     <!--form.change.$error.required">-->
-                           <!--Percentage must be entered.-->
-                    <!--</span>-->
-        <!--</div>-->
 
         <br>
 

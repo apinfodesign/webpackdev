@@ -19,11 +19,7 @@ export default function( ngModule ) {
                 get(){
                     return $http.get( url + '/api/users' )
                         .then( res => {
-
                             console.log(res.data);
-
-
-
                             return res.data;
                         });
                 },

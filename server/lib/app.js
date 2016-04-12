@@ -66,8 +66,8 @@ function ensureAuthenticated(req, res, next) {
         console.log( 'token expired' );
         return res.status(401).send({ message: 'Token has expired' });
     }
-    req.user = payload.sub;
-
+//  req.user   = payload.sub;   //MN suggestion
+    req.userID = payload.sub;
     next();
 }
 
@@ -76,18 +76,34 @@ function ensureAuthenticated(req, res, next) {
 
 //get all magazines in magazines
 app.get('/api/magazines', ensureAuthenticated , function (req,res){
-    Magazine.find({})
+
+    console.log ('userID is', req.userID );
+
+    Magazine.find(    )
+     .where( 'user' , req.userID )
+     //.where( '_id.$oid',  '570c1cd7a779e15fa902423f'
+     //.where ('user', 'testing')
         .exec(function(err, magazine){
             if (err) {
                 return next(err);}
             else{
+                console.log (magazine);
+
                 res.status(200).json(magazine);
             }
         });
 });
 
+
+
+
+
+
+
 //create new magazine in magazines
 app.post('/api/magazines', ensureAuthenticated,  function(req, res, next){
+
+    req.body.user = req.userID;
 
     console.log ( 'SERVER CREATING NEW MAG>>>', req.body );
 
@@ -159,6 +175,12 @@ app.get('/api/users', ensureAuthenticated, function (req,res){
         });
 });
 
+
+
+
+
+
+
 //////////////////////////////////////////////////from daybreak
 //app.post('/api/user', function(req, res, next){
 //    //console.log('JJJJJ INCOMING AT API/USERPROFILE', req.body);
@@ -197,7 +219,6 @@ app.get('/api/users', ensureAuthenticated, function (req,res){
 ////////////////////////////////////////////////
 
 
-//delete own account
 
 
 //

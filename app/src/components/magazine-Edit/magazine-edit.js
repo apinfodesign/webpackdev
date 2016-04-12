@@ -2,16 +2,22 @@ import template from './magazine-edit.html';
 import styles from './magazine-edit.scss';
 
 
+
+
+
 export default function( ngModule ) {
 
-    ngModule.directive( 'magazineEdit', function(){
+    ngModule.directive( 'magazineEdit',  function(){
         return {
             replace: true,
             restrict: 'E',
             template,
                 scope: {
                     magazine: '=',
-                    saved: '&'
+                    saved: '&',
+
+                    users: '='
+
                 },
             controller:[ '$scope', 'magazinesService', '$state',
                 function( $scope, magazinesService, $state ){

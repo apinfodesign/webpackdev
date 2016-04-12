@@ -6,6 +6,10 @@ const qs = require( 'querystring' );
 const router = new Router();
 const User = require( '../models/user' );
 
+
+const auth = require( './auth.js' );
+const bodyParser = require( 'body-parser' );
+
 const config = process.env;
 
 function createJWT( user ) {
@@ -16,6 +20,43 @@ function createJWT( user ) {
     };
     return token.sign( payload );
 }
+
+
+router.post('/auth/login', function(req, res, next){
+
+    console.log(' hitting user login', req.body);
+
+});
+
+
+
+///*
+// |--------------------------------------------------------------------------
+// | Create Email and Password Account
+// |--------------------------------------------------------------------------
+// */
+//app.post('/auth/signup', function(req, res) {
+//    User.findOne({ email: req.body.email }, function(err, existingUser) {
+//        if (existingUser) {
+//            return res.status(409).send({ message: 'Email is already taken' });
+//        }
+//        var user = new User({
+//            displayName: req.body.displayName,
+//            email: req.body.email,
+//            password: req.body.password
+//        });
+//        user.save(function(err, result) {
+//            if (err) {
+//                res.status(500).send({ message: err.message });
+//            }
+//            res.send({ token: createJWT(result) });
+//        });
+//    });
+//});
+
+
+
+
 
 router.post('/twitter', function(req, res) {
     var requestTokenUrl = 'https://api.twitter.com/oauth/request_token';

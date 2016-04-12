@@ -9,26 +9,37 @@
 
     <div>
         <br>
-        <form data-ng-submit="User.registerValidUser(User);
-			  User.userViewSwitch='profile';"
-              name = "regForm"
+        <!--<form ng-submit="submit()"  >-->
+            <!--Enter text and hit enter:-->
+            <!--<input type="text" ng-model="text" name="text" />-->
+            <!--<input type="submit" id="submit" value="Submit" />-->
+            <!--<pre>list={{list}}</pre>-->
+        <!--</form>-->
+
+        <form ng-submit ="submit(User)"
               novalidate>
 
             <div class="form group">
-                <input class= "form-control"
+                <input ng-model="User.username""
                        type="text"
                        size="50"
-                       data-ng-model="User.username"
-                       data-ng-change="User.checkthename(User.username)"
                        placeholder="Enter Username or email."
                        required>
             </div>
             <br>
+
             <div class="form group">
-                <input class= "form-control" id="emailConfirm"  type="email"
+                <input type="password"
+                       ng-model="User.password"
                        size="50"
-                       placeholder="Enter Password."
+                       placeholder="Enter Password"
                        required>
             </div>
+
+            <input type="submit" id="submit" value="Submit"/>
+
+            <pre>list={{list}}</pre>
+
         </form>
  </div>
+
